@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABCD ERP - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+
+    <!-- Material Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!--! Top Bar -->
+    <header class="topbar">
+      <div class="topbar-logo">ABCD</div>
+      <div
+        class="hamburger"
+        id="hamburger"
+        title="Toggle sidebar"
+        aria-label="Toggle sidebar"
+        role="button"
+        tabindex="0"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!--! search bar  -->
+
+      <div class="search-container" role="search">
+        <input
+          type="text"
+          placeholder="Search the application..."
+          aria-label="Search the application"
+        />
+        <div class="search-icon-container">
+          <button type="submit" class="material-icons search-icon">search</button>
+        </div>
+      </div>
+
+      <!-- <form
+        class="search-container"
+        role="search"
+        action="/search"
+        method="GET"
+      >
+        <input
+          type="text"
+          name="q"
+          placeholder="Search the application..."
+          aria-label="Search the application"
+          required
+        />
+        <button type="submit">
+          <span class="material-icons">search</span>
+        </button>
+      </form> -->
+
+      <!--! header start  -->
+    </header>
+
+    <div class="container">
+      <!--! Sidebar -->
+      <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
+        <div class="menu">
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">person</span><a href="assets/pages/user.html">User</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">inventory_2</span
+            ><a href="#">Inventory</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">build</span> <a href="#">Repair</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">upgrade</span
+            > <a href="#">Upgrade</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true"
+              >assignment_returned</span
+            > <a href="#">Issue To</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">bar_chart</span
+            > <a href="#">Reports</a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer" tabindex="0">
+          <span class="material-icons" aria-hidden="true">account_circle</span>
+          <span>Logged User</span>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main" id="main-content" tabindex="0">
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

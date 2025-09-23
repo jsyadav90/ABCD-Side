@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABCD ERP - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+
+    <!-- Material Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!--! Top Bar -->
+    <header class="topbar">
+      <div class="topbar-logo"><a href="../../index.html">ABCD</a></div>
+      <div
+        class="hamburger"
+        id="hamburger"
+        title="Toggle sidebar"
+        aria-label="Toggle sidebar"
+        role="button"
+        tabindex="0"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!--! search bar  -->
+
+      <div class="search-container" role="search">
+        <input
+          type="text"
+          placeholder="Search the application..."
+          aria-label="Search the application"
+        />
+        <div class="search-icon-container">
+          <button type="submit" class="material-icons search-icon">
+            search
+          </button>
+        </div>
+      </div>
+
+      <!--! header start  -->
+    </header>
+
+    <div class="container">
+      <!--! Sidebar -->
+      <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
+        <div class="menu">
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">person</span
+            ><a href="user.html">User</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">inventory_2</span
+            ><a href="#">Inventory</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">build</span>
+            <a href="#">Repair</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">upgrade</span>
+            <a href="#">Upgrade</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true"
+              >assignment_returned</span
+            >
+            <a href="#">Issue To</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">bar_chart</span>
+            <a href="#">Reports</a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer" tabindex="0">
+          <span class="material-icons" aria-hidden="true">account_circle</span>
+          <span>Logged User</span>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="main" id="main-content" tabindex="0">
+        <div class="action-btn box-shadow">
+          <div class="action-controls">
+            <!--todo Fillter  -->
+            <div class="fillter">
+              <button class="btn fliter-btn">Filter</button>
+            </div>
+            <!--todo Content search for page  -->
+            <div class="content-search">
+              <form class="search-form">
+                <div class="search-content">
+                  <input type="text" placeholder="Search..." />
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--todo Other Buttons  -->
+          <div class="action-controls">
+            <button class="btn add-btn">Add User</button>
+            <button class="btn dis-btn">Disable</button>
+          </div>
+        </div>
+
+        <div class="tab-content" id="user">
+          <div class="table-wrapper">
+            <table class="table" id="user-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>User ID</th>
+                  <th>Full Name</th>
+                  <th>Designation</th>
+                  <th>Department</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+
+                  <th>Status</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        class="icon"
+                        alt="Edit"
+                      />
+                    </button>
+                  </td>
+                  <td> EMP00123</td>
+                  <td>Anjali Sharma</td>
+                  <td>Accountant</td>
+                  <td>Finance</td>
+                  <td>anjali.sharma@company.com</td>
+                  <td>9876543210</td>
+                  <td>Active</td>
+                  <td>Full-time</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        class="icon"
+                        alt="Edit"
+                      />
+                    </button>
+                  </td>
+                  <td>EMP00145</td>
+                  <td>Vikram Yadav</td>
+                  <td>Network Engineer</td>
+                  <td>IT</td>
+                  <td>vikram.yadav@company.com</td>
+                  <td>9988776655</td>
+
+                  <td>Active</td>
+                  <td>Works remotely</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>
