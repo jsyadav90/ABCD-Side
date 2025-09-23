@@ -9,10 +9,10 @@ html {
   overflow-x: hidden;
   box-sizing: border-box;
 }
-a{
+a {
   text-decoration: none;
 }
-.hide{
+.hide {
   display: none;
 }
 .topbar {
@@ -36,9 +36,8 @@ a{
   letter-spacing: 2px;
   margin-right: 12px;
 }
-.topbar-logo a{
+.topbar-logo a {
   color: #fff;
-  
 }
 .hamburger {
   cursor: pointer;
@@ -80,42 +79,42 @@ a{
   overflow-y: auto;
   z-index: 1500;
 }
+
 .sidebar.hide {
   transform: translateX(-100%);
 }
-/* .menu {
-  flex-grow: 1;
+
+/* Sidebar Menu */
+.menu {
   display: flex;
   flex-direction: column;
-  margin-top:10px;
-} */
-
-.main {
-  margin-left: 200px;
-  height: calc(100vh - 64px);
-  overflow-y: auto; /* allow main content scroll only inside */
-  padding: 16px 32px;
-  box-sizing: border-box;
-  transition: margin-left 0.25s ease;
+  margin-top: 10px;
 }
 
-
 .menu-item {
-  padding: 14px 28px;
-  font-size: 1.05rem;
-  cursor: pointer;
+  padding: 0;
   border-left: 4px solid transparent;
   transition: background 0.18s, border-color 0.15s;
   display: flex;
   align-items: center;
-  gap: 10px;
   user-select: none;
+  height: 52px; /* consistent height */
 }
-.menu-item:hover,
-.menu-item.active {
-  background: #203047;
-  border-left: 4px solid #4db8ff;
+
+.menu-item a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  width: 100%; /* full div clickable */
+  color: #fff;
 }
+
+.menu-item a:hover {
+  text-decoration: none; /* optional */
+}
+
+/* Sidebar Footer */
 .sidebar-footer {
   padding: 18px 28px;
   background: #1a2533;
@@ -126,13 +125,10 @@ a{
   cursor: pointer;
   user-select: none;
 }
+
 .sidebar-footer .material-icons {
   font-size: 1.6rem;
   color: #4db8ff;
-}
-
-.menu-item a{
-  color:  #fff;
 }
 
 /* Main content */
@@ -149,18 +145,18 @@ a{
   margin-left: 0;
 }
 
-/* Search Bar in topbar */
+/*! Search Bar in topbar */
 .search-container {
   display: flex;
-  align-items: stretch;       /* children take full height */
+  align-items: stretch; /* children take full height */
   max-width: 254px;
   width: 100%;
   margin-left: auto;
-  height: 35px;               /* 🔥 fixed height for consistency */
+  height: 35px; /* 🔥 fixed height for consistency */
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s ease;
   overflow: hidden;
 }
@@ -170,20 +166,20 @@ a{
   border: none;
   outline: none;
   font-size: 16px;
-  padding: 0 8px;             /* no top/bottom padding → matches height */
+  padding: 0 8px; /* no top/bottom padding → matches height */
   background: transparent;
   color: #333;
-  height: 100%;               /* stretch full container */
+  height: 100%; /* stretch full container */
   box-sizing: border-box;
 }
 
-.search-icon-container{
-    width: 50px;
-    border: 1px solid;
+.search-icon-container {
+  width: 50px;
+  border: 1px solid;
 }
 .search-icon-container button {
-  height: 100%;               /* 🔥 full container height */
-  width: 45px;                /* fixed width for button */
+  height: 100%; /* 🔥 full container height */
+  width: 45px; /* fixed width for button */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,15 +199,12 @@ a{
   background-color: #0056b3;
 }
 
-
-
-
 /*! Main  */
 /* .main {
   height: calc(100vh - 64px);
   overflow-y: auto; 
 } */
- .btn {
+.btn {
   background: #006699;
   color: #fff;
   border: none;
@@ -228,7 +221,6 @@ a{
   padding: 0.5rem;
   gap: 2rem;
   flex-wrap: wrap;
- 
 }
 
 .add-btn {
@@ -237,7 +229,7 @@ a{
   transition: background 0.3s ease;
 }
 
-.fliter-btn{
+.fliter-btn {
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
@@ -267,12 +259,9 @@ a{
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
+
   /* margin-left: 2rem; */
 }
-
-
-
 
 #main-content {
   position: relative;
@@ -329,7 +318,6 @@ a{
 }
 
 .tab-button {
-  
   white-space: nowrap;
   padding: 0.5rem 1rem;
   border: 1px solid #ddd;
@@ -360,8 +348,6 @@ a{
   flex-direction: column;
   overflow: hidden;
 }
-
-
 
 .table tbody tr.selected {
   background-color: #ffe0e0;
@@ -416,12 +402,12 @@ a{
 .table th:first-child,
 .table td:first-child {
   width: 20px;
-} 
+}
 
 .table th:last-child,
 .table td:last-child {
   width: 60px;
-} 
+}
 .edit-btn {
   border: none;
   cursor: pointer;
@@ -430,6 +416,5 @@ a{
 
 /*! inventory Page Tab buttons  */
 .box-shadow {
- box-shadow: 3px 3px 10px rgba(84, 89, 94, 0.3);
+  box-shadow: 3px 3px 10px rgba(84, 89, 94, 0.3);
 }
-
