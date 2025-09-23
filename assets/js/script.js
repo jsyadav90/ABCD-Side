@@ -73,13 +73,15 @@ if (tabButtons.length) {
       }
     });
   });
-} else {
-  // ✅ For user.html, repair.html, etc. (no tab)
-  const defaultTable = document.querySelector("table.table");
-  if (defaultTable) {
-    actionDiv?.classList.remove("hide");
-    setupCheckboxLogic(defaultTable);
-  } else {
-    actionDiv?.classList.add("hide");
-  }
-}
+} 
+// else {
+//   // ✅ For user.html, repair.html, etc. (no tab)
+//   const defaultTable = document.querySelector("table.table");
+//   if (defaultTable) {
+//     actionDiv?.classList.remove("hide");
+//   } else {
+//     actionDiv?.classList.add("hide");
+//   }
+// }
+
+
