@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABCD ERP - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+
+    <!-- Material Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!--! Top Bar -->
+    <header class="topbar">
+      <div class="topbar-logo">ABCD</div>
+      <div
+        class="hamburger"
+        id="hamburger"
+        title="Toggle sidebar"
+        aria-label="Toggle sidebar"
+        role="button"
+        tabindex="0"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!--! search bar  -->
+
+      <div class="search-container" role="search">
+        <input
+          type="text"
+          placeholder="Search the application..."
+          aria-label="Search the application"
+        />
+        <div class="search-icon-container">
+          <button type="submit" class="material-icons search-icon">search</button>
+        </div>
+      </div>
+
+      <!-- <form
+        class="search-container"
+        role="search"
+        action="/search"
+        method="GET"
+      >
+        <input
+          type="text"
+          name="q"
+          placeholder="Search the application..."
+          aria-label="Search the application"
+          required
+        />
+        <button type="submit">
+          <span class="material-icons">search</span>
+        </button>
+      </form> -->
+
+      <!--! header start  -->
+    </header>
+
+    <div class="container">
+      <!--! Sidebar -->
+      <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
+        <div class="menu">
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">person</span><a href="user.html">User</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">inventory_2</span
+            ><a href="inventory.html">Inventory</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">build</span> <a href="#">Repair</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">upgrade</span
+            > <a href="#">Upgrade</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true"
+              >assignment_returned</span
+            > <a href="#">Issue To</a>
+          </div>
+          <div class="menu-item" tabindex="0">
+            <span class="material-icons" aria-hidden="true">bar_chart</span
+            > <a href="#">Reports</a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer" tabindex="0">
+          <span class="material-icons" aria-hidden="true">account_circle</span>
+          <span>Logged User</span>
+        </div>
+      </nav>
+
+      <!--! Main Content -->
+      <main class="main" id="main-content" tabindex="0">
+        
+        
+        <div class="tab-bar f-justify-center box-shadow">
+        <button class="tab-button" data-target="desktop">Desktop</button>
+        <button class="tab-button" data-target="cpu">CPU</button>
+        <button class="tab-button" data-target="monitor">Monitor</button>
+        <button class="tab-button" data-target="printer">Printer</button>
+        <button class="tab-button" data-target="laptop">Laptop</button>
+        <button class="tab-button" data-target="projector">Projector</button>
+        <button class="tab-button" data-target="net-switch">
+          Network Switch
+        </button>
+        <button class="tab-button" data-target="ups">UPS</button>
+        <!-- Add more buttons as needed -->
+      </div>
+
+      <div class="action-btn">
+        <div class="action-controls">
+          <!--todo Fillter  -->
+          <div class="fillter">
+            <button class="btn fliter-btn">Filter</button>
+          </div>
+          <!--todo Content search for page  -->
+          <div class="content-search">
+            <form class="search-form">
+              <div class="search-content">
+                <input type="text" placeholder="Search..." />
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--todo Other Buttons  -->
+        <div class="action-controls">
+          <div class="btn add-btn">Add New</div>
+          <div class="btn dis-btn">Disable</div>
+        </div>
+      </div>
+
+      <!-- summary  -->
+      <div class="tab-content" id="summary">
+        <p>This is Summary Page...</p>
+      </div>
+
+      <!-- Desktop  -->
+      <div class="tab-content" id="desktop" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="desktop-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>CPU Asset ID</th>
+                <th>Monitor Asset ID</th>
+                <th>Mouse Asset ID</th>
+                <th>Keyboard Asset ID</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Desktop</td>
+                <td><a href="https://google.com">IT-D001</a></td>
+                <td>SN-D123456</td>
+                <td>SN-D123456</td>
+                <td>SN-D123456</td>
+                <td>SN-D123456</td>
+                <td>Admin Office</td>
+                <td>Sunil Sharma</td>
+                <td>In Use</td>
+                <td>Running well</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Desktop</td>
+                <td>IT-D002</td>
+                <td>SN-D654321</td>
+                <td>SN-D654321</td>
+                <td>SN-D654321</td>
+                <td>SN-D654321</td>
+                <td>Store Room</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Backup unit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CPU  -->
+      <div class="tab-content" id="cpu" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="cpu-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Sr. No</th>
+                <th>IT Code</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Serial No</th>
+                <th>Processor</th>
+                <th>Storage</th>
+                <th>Ram</th>
+                <th>Motherboard</th>
+                <th>CD Drive (Y/N)</th>
+                <th>Mac Address</th>
+                <th>Purchase Date</th>
+                <th>Warranty Status</th>
+                <th>Vendor</th>
+                <th>Status</th>
+                <th>Current Location</th>
+                <th>Remarks</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+                <td>CPU001</td>
+                <td>HP</td>
+                <td>ProDesk</td>
+                <td>SN456</td>
+                <td>i5</td>
+                <td>512GB</td>
+                <td>8GB</td>
+                <td>Intel</td>
+                <td>Y</td>
+                <td>00-14-22-01-23-45</td>
+                <td>2023-12-01</td>
+                <td>Active</td>
+                <td>Vendor B</td>
+                <td>In Use</td>
+                <td>Branch A</td>
+                <td>OK</td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Monitor  -->
+      <div class="tab-content" id="monitor" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="monitor-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>Serial No</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Screen Size</th>
+                <th>Resolution</th>
+                <th>Panel Type</th>
+                <th>Ports</th>
+                <th>Purchase Date</th>
+                <th>Warranty</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Monitor</td>
+                <td>IT-M001</td>
+                <td>SN-M112233</td>
+                <td>Samsung</td>
+                <td>LS24R350</td>
+                <td>24"</td>
+                <td>1920x1080</td>
+                <td>IPS</td>
+                <td>HDMI, VGA</td>
+                <td>2022-08-20</td>
+                <td>Valid till 2025-08-20</td>
+                <td>Finance Dept</td>
+                <td>Priya R.</td>
+                <td>In Use</td>
+                <td>No issues</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Monitor</td>
+                <td>IT-M002</td>
+                <td>SN-M998877</td>
+                <td>Dell</td>
+                <td>SE2422H</td>
+                <td>23.8"</td>
+                <td>1920x1080</td>
+                <td>VA</td>
+                <td>HDMI, VGA</td>
+                <td>2023-05-12</td>
+                <td>Valid till 2026-05-12</td>
+                <td>Reception</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Spare unit</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Laptop  -->
+      <div class="tab-content" id="laptop" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="latop-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>Serial No</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Processor</th>
+                <th>RAM</th>
+                <th>Storage</th>
+                <th>Operating System</th>
+                <th>Purchase Date</th>
+                <th>Warranty</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Laptop</td>
+                <td>IT-L001</td>
+                <td>SN-L123456</td>
+                <td>Dell</td>
+                <td>Latitude 5410</td>
+                <td>Intel i5 10th Gen</td>
+                <td>8GB</td>
+                <td>512GB SSD</td>
+                <td>Windows 10 Pro</td>
+                <td>2023-02-15</td>
+                <td>Valid till 2026-02-15</td>
+                <td>Admin Office</td>
+                <td>Rajesh Kumar</td>
+                <td>In Use</td>
+                <td>Needs cleaning</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Laptop</td>
+                <td>IT-L002</td>
+                <td>SN-L654321</td>
+                <td>HP</td>
+                <td>EliteBook 840</td>
+                <td>Intel i7 9th Gen</td>
+                <td>16GB</td>
+                <td>1TB SSD</td>
+                <td>Windows 10 Pro</td>
+                <td>2022-11-05</td>
+                <td>Valid till 2025-11-05</td>
+                <td>Tech Support</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Running well</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Printer  -->
+      <div class="tab-content" id="printer" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="printer-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>Serial No</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Printer Type</th>
+                <th>Color/Mono</th>
+                <th>Network Capable</th>
+                <th>Cartridge/Toner Model</th>
+                <th>Page Count</th>
+                <th>Purchase Date</th>
+                <th>Warranty</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Printer</td>
+                <td>IT-P001</td>
+                <td>SN-P776655</td>
+                <td>HP</td>
+                <td>LaserJet Pro MFP M126nw</td>
+                <td>Laser</td>
+                <td>Mono</td>
+                <td>Yes</td>
+                <td>88A</td>
+                <td>12500</td>
+                <td>2022-03-15</td>
+                <td>Valid till 2025-03-15</td>
+                <td>Accounts Dept</td>
+                <td>Anil Mehra</td>
+                <td>In Use</td>
+                <td>Needs toner replacement</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Printer</td>
+                <td>IT-P002</td>
+                <td>SN-P334455</td>
+                <td>Canon</td>
+                <td>PIXMA G3010</td>
+                <td>Inkjet</td>
+                <td>Color</td>
+                <td>Yes</td>
+                <td>GI-790</td>
+                <td>9500</td>
+                <td>2021-12-01</td>
+                <td>Expired</td>
+                <td>Library</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Working fine</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Projector  -->
+      <div class="tab-content" id="projector" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="projector-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>Serial No</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Lumens</th>
+                <th>Resolution</th>
+                <th>Projection Distance</th>
+                <th>Ports</th>
+                <th>Purchase Date</th>
+                <th>Warranty</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Projector</td>
+                <td>IT-PJ001</td>
+                <td>SN-PJ112233</td>
+                <td>Epson</td>
+                <td>EB-X41</td>
+                <td>3300 Lumens</td>
+                <td>1024x768</td>
+                <td>1.5m to 5m</td>
+                <td>HDMI, VGA</td>
+                <td>2021-05-10</td>
+                <td>Valid till 2024-05-10</td>
+                <td>Conference Room</td>
+                <td>Unassigned</td>
+                <td>In Use</td>
+                <td>Remote missing</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Projector</td>
+                <td>IT-PJ002</td>
+                <td>SN-PJ445566</td>
+                <td>BenQ</td>
+                <td>MW535A</td>
+                <td>3600 Lumens</td>
+                <td>1280x800</td>
+                <td>1m to 6m</td>
+                <td>HDMI, VGA, USB</td>
+                <td>2022-08-18</td>
+                <td>Valid till 2025-08-18</td>
+                <td>Training Room</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Working well</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Network Switch  -->
+      <div class="tab-content" id="net-switch" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="net-switch-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>Serial No</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>No. of Ports</th>
+                <th>Port Speed</th>
+                <th>VLAN Support</th>
+                <th>Uplink Ports</th>
+                <th>Firmware Version</th>
+                <th>Purchase Date</th>
+                <th>Warranty</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Network Switch</td>
+                <td>IT-SW001</td>
+                <td>SN-SW112233</td>
+                <td>Cisco</td>
+                <td>Catalyst 2960</td>
+                <td>24</td>
+                <td>1Gbps</td>
+                <td>Yes</td>
+                <td>1 x Gigabit</td>
+                <td>12.2(55)SE</td>
+                <td>2021-03-01</td>
+                <td>Valid till 2024-03-01</td>
+                <td>IT Room</td>
+                <td>Unassigned</td>
+                <td>In Use</td>
+                <td>Good condition</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>Router</td>
+                <td>IT-R001</td>
+                <td>SN-R001122</td>
+                <td>TP-Link</td>
+                <td>Archer AX6000</td>
+                <td>8</td>
+                <td>2.5Gbps</td>
+                <td>Yes</td>
+                <td>1 x 10Gbps</td>
+                <td>1.0.10 Build 2021</td>
+                <td>2022-06-20</td>
+                <td>Valid till 2025-06-20</td>
+                <td>Server Room</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Working well</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- UPS  -->
+      <div class="tab-content" id="ups" style="display: none">
+        <div class="table-wrapper">
+          <table class="table" id="ups-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
+                <th>Action</th>
+                <th>Item Type</th>
+                <th>Asset ID</th>
+                <th>Serial No</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Capacity</th>
+                <th>Battery Backup Time</th>
+                <th>Input Voltage</th>
+                <th>Output Sockets</th>
+                <th>Purchase Date</th>
+                <th>Warranty</th>
+                <th>Location</th>
+                <th>Assigned To</th>
+                <th>Status</th>
+                <th>Remarks</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>UPS</td>
+                <td>IT-U001</td>
+                <td>SN-U112233</td>
+                <td>APC</td>
+                <td>Smart-UPS 600VA</td>
+                <td>600VA</td>
+                <td>30 minutes</td>
+                <td>230V</td>
+                <td>4 x 3-pin</td>
+                <td>2023-01-15</td>
+                <td>Valid till 2026-01-15</td>
+                <td>Server Room</td>
+                <td>Unassigned</td>
+                <td>In Use</td>
+                <td>Battery replacement needed</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+                <td>
+                  <button class="edit-btn">
+                    <img
+                      src="../icons/edit-button.png"
+                      class="icon"
+                      alt="Edit"
+                    />
+                  </button>
+                </td>
+                <td>UPS</td>
+                <td>IT-U002</td>
+                <td>SN-U445566</td>
+                <td>CyberPower</td>
+                <td>Value 800VA</td>
+                <td>800VA</td>
+                <td>45 minutes</td>
+                <td>230V</td>
+                <td>6 x 3-pin</td>
+                <td>2022-04-10</td>
+                <td>Valid till 2025-04-10</td>
+                <td>Reception</td>
+                <td>Unassigned</td>
+                <td>In Stock</td>
+                <td>Functional</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

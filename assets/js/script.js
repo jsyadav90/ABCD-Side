@@ -1,44 +1,41 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const sidebar = document.getElementById('sidebar');
-  const hamburger = document.getElementById('hamburger');
-  const mainContent = document.getElementById('main-content');
+document.addEventListener("DOMContentLoaded", function () {
+  const sidebar = document.getElementById("sidebar");
+  const hamburger = document.getElementById("hamburger");
+  const mainContent = document.getElementById("main-content");
 
- 
   // Ensure initial sidebar state based on screen width
   function setInitialSidebarState() {
-   
     if (window.innerWidth <= 1200) {
-      sidebar.classList.add('hide');
-      sidebar.classList.remove('show');
-      mainContent.classList.add('fullwidth');
-    } else if(window.innerWidth > 1200){
-         sidebar.classList.add('show');
-         sidebar.classList.remove('hide');
-        //  mainContent.classList.add('fullwidth');
-    }
-    else {
-      sidebar.classList.remove('hide');
-      sidebar.classList.remove('show');
-      mainContent.classList.remove('fullwidth');
+      sidebar.classList.add("hide");
+      sidebar.classList.remove("show");
+      mainContent.classList.add("fullwidth");
+    } else if (window.innerWidth > 1200) {
+      sidebar.classList.add("show");
+      sidebar.classList.remove("hide");
+      //  mainContent.classList.add('fullwidth');
+    } else {
+      sidebar.classList.remove("hide");
+      sidebar.classList.remove("show");
+      mainContent.classList.remove("fullwidth");
     }
   }
 
   //todo Toggle sidebar visibility
   function toggleSidebar() {
-    if (sidebar.classList.contains('show')) {
-      sidebar.classList.remove('show');
-      sidebar.classList.add('hide');
-      mainContent.classList.add('fullwidth');
+    if (sidebar.classList.contains("show")) {
+      sidebar.classList.remove("show");
+      sidebar.classList.add("hide");
+      mainContent.classList.add("fullwidth");
     } else {
-      sidebar.classList.remove('hide');
-      sidebar.classList.add('show');
-      mainContent.classList.remove('fullwidth');
+      sidebar.classList.remove("hide");
+      sidebar.classList.add("show");
+      mainContent.classList.remove("fullwidth");
     }
   }
 
-  hamburger.addEventListener('click', toggleSidebar);
+  hamburger.addEventListener("click", toggleSidebar);
 
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     // When resizing, reset sidebar initial state and hide 'show' to avoid conflict
     setInitialSidebarState();
   });
@@ -47,17 +44,42 @@ document.addEventListener('DOMContentLoaded', function() {
   setInitialSidebarState();
 });
 
+//! ✅ Setup Tab Navigation (for inventory.html only)
 
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabContents = document.querySelectorAll(".tab-content");
+const actionDiv = document.querySelector(".action-btn");
 
+if (tabButtons.length) {
+  tabButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      tabButtons.forEach((btn) => btn.classList.remove("active"));
+      tabContents.forEach((content) => (content.style.display = "none"));
 
-//! Select all menu items with class 'menu-item'
-  const menuItems = document.querySelectorAll('.sidebar .menu .menu-item');
+      button.classList.add("active");
+      const targetId = button.getAttribute("data-target");
+      const targetContent = document.getElementById(targetId);
 
-  menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Remove 'active' class from all menu items
-      menuItems.forEach(i => i.classList.remove('active'));
-      // Add 'active' class to the clicked menu item
-      item.classList.add('active');
+      if (targetContent) {
+        targetContent.style.display = "block";
+
+        const hasTable = targetContent.querySelector("table.table");
+        if (hasTable) {
+          actionDiv?.classList.remove("hide");
+          setupCheckboxLogic(hasTable);
+        } else {
+          actionDiv?.classList.add("hide");
+        }
+      }
     });
-  }); 
+  });
+} else {
+  // ✅ For user.html, repair.html, etc. (no tab)
+  const defaultTable = document.querySelector("table.table");
+  if (defaultTable) {
+    actionDiv?.classList.remove("hide");
+    setupCheckboxLogic(defaultTable);
+  } else {
+    actionDiv?.classList.add("hide");
+  }
+}

@@ -378,7 +378,7 @@ a{
   flex: 1;
   overflow-y: auto;
   overflow-x: auto;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   position: relative;
 }
 
@@ -426,5 +426,10 @@ a{
   border: none;
   cursor: pointer;
   /* background-color: red; */
+}
+
+/*! inventory Page Tab buttons  */
+.box-shadow {
+ box-shadow: 3px 3px 10px rgba(84, 89, 94, 0.3);
 }
 
