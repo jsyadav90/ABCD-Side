@@ -1,11 +1,43 @@
+/* ==========================================================
+   Global CSS Variables
+   ========================================================== */
+:root {
+  /* Layout sizes */
+  --topbar-height: 64px;
+  --sidebar-width: 200px;
+  --menu-item-height: 52px;
+
+  /* Colors */
+  --color-bg-body: #f5f7fa;
+  --color-text: #222;
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-secondary: #4db8ff;
+  --color-sidebar-bg: #222e3c;
+  --color-topbar-bg: #1a2533;
+  --color-footer-bg: #1a2533;
+  --color-border: #ccc;
+  --color-table-border: #ddd;
+
+  /* Shadows */
+  --shadow-sidebar: 2px 0 8px rgba(44, 60, 84, 0.07);
+  --shadow-search: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  /* Fonts */
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*! ==========================================================
+   Reset / Base
+   ========================================================== */
 body,
 html {
   margin: 0;
   padding: 0;
   height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f5f7fa;
-  color: #222;
+  font-family: var(--font-family);
+  background: var(--color-bg-body);
+  color: var(--color-text);
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -15,14 +47,18 @@ a {
 .hide {
   display: none;
 }
+
+/*! ==========================================================
+   TopBar
+   ========================================================== */
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 64px;
-  background: #1a2533;
-  color: #4db8ff;
+  height: var(--topbar-height);
+  background: var(--color-topbar-bg);
+  color: var(--color-secondary);
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -38,6 +74,7 @@ a {
 }
 .topbar-logo a {
   color: #fff;
+  font-size: 2rem;
 }
 .hamburger {
   cursor: pointer;
@@ -51,35 +88,40 @@ a {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: #4db8ff;
+  background-color: var(--color-secondary);
   border-radius: 3px;
 }
+
+/*! ==========================================================
+   Layout
+   ========================================================== */
 .container {
   display: flex;
-  height: calc(100vh - 64px);
-  margin-top: 64px;
+  height: calc(100vh - var(--topbar-height));
+  margin-top: var(--topbar-height);
   overflow: hidden;
 }
 
-/* Sidebar */
+/*! ==========================================================
+   Sidebar
+   ========================================================== */
 .sidebar {
-  width: 200px;
-  background: #222e3c;
+  width: var(--sidebar-width);
+  background: var(--color-sidebar-bg);
   color: #fff;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  box-shadow: 2px 0 8px rgba(44, 60, 84, 0.07);
+  box-shadow: var(--shadow-sidebar);
   transition: transform 0.25s ease;
   position: fixed;
-  top: 64px;
+  top: var(--topbar-height);
   bottom: 0;
   left: 0;
-  height: calc(100vh - 64px);
+  height: calc(100vh - var(--topbar-height));
   overflow-y: auto;
   z-index: 1500;
 }
-
 .sidebar.hide {
   transform: translateX(-100%);
 }
@@ -88,9 +130,7 @@ a {
 .menu {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
 }
-
 .menu-item {
   padding: 0;
   border-left: 4px solid transparent;
@@ -98,26 +138,25 @@ a {
   display: flex;
   align-items: center;
   user-select: none;
-  height: 52px; /* consistent height */
+  height: var(--menu-item-height);
 }
-
 .menu-item a {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 14px 28px;
-  width: 100%; /* full div clickable */
+  width: 100%;
   color: #fff;
+  border-top: 1px solid;
 }
-
 .menu-item a:hover {
-  text-decoration: none; /* optional */
+  text-decoration: none;
 }
 
 /* Sidebar Footer */
 .sidebar-footer {
   padding: 18px 28px;
-  background: #1a2533;
+  background: var(--color-footer-bg);
   display: flex;
   align-items: center;
   gap: 12px;
@@ -125,15 +164,16 @@ a {
   cursor: pointer;
   user-select: none;
 }
-
 .sidebar-footer .material-icons {
   font-size: 1.6rem;
-  color: #4db8ff;
+  color: var(--color-secondary);
 }
 
-/* Main content */
+/*! ==========================================================
+   Main Content
+   ========================================================== */
 .main {
-  margin-left: 200px;
+  margin-left: var(--sidebar-width);
   flex-grow: 1;
   height: 100%;
   overflow-y: auto;
@@ -145,65 +185,61 @@ a {
   margin-left: 0;
 }
 
-/*! Search Bar in topbar */
+/*! ==========================================================
+   Search Bar
+   ========================================================== */
 .search-container {
   display: flex;
-  align-items: stretch; /* children take full height */
+  align-items: stretch;
   max-width: 254px;
   width: 100%;
   margin-left: auto;
-  height: 35px; /* 🔥 fixed height for consistency */
-  border: 1px solid #ccc;
+  height: 35px;
+  border: 1px solid var(--color-border);
   border-radius: 5px;
   background-color: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-search);
   transition: box-shadow 0.3s ease;
   overflow: hidden;
 }
-
 .search-container input {
   flex: 1;
   border: none;
   outline: none;
   font-size: 16px;
-  padding: 0 8px; /* no top/bottom padding → matches height */
+  padding: 0 8px;
   background: transparent;
   color: #333;
-  height: 100%; /* stretch full container */
+  height: 100%;
   box-sizing: border-box;
 }
-
 .search-icon-container {
   width: 50px;
   border: 1px solid;
 }
 .search-icon-container button {
-  height: 100%; /* 🔥 full container height */
-  width: 45px; /* fixed width for button */
+  height: 100%;
+  width: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: var(--color-primary);
   transition: background 0.3s ease;
 }
-
 .search-icon {
   font-size: 20px;
   color: #fff;
   transition: color 0.3s ease;
 }
-
 .search-icon-container button:hover {
-  background-color: #0056b3;
+  background-color: var(--color-primary-hover);
 }
 
-/*! Main  */
-/* .main {
-  height: calc(100vh - 64px);
-  overflow-y: auto; 
-} */
+/*! ==========================================================
+   Buttons
+   ========================================================== */
 .btn {
   background: #006699;
   color: #fff;
@@ -214,7 +250,6 @@ a {
   font: 1rem;
   transition: background 0.3s ease;
 }
-
 .action-btn {
   margin-bottom: 5px;
   display: flex;
@@ -222,13 +257,11 @@ a {
   gap: 2rem;
   flex-wrap: wrap;
 }
-
 .add-btn {
   padding: 0.5rem 1rem;
   font-weight: 600;
   transition: background 0.3s ease;
 }
-
 .fliter-btn {
   color: #fff;
   border: none;
@@ -238,31 +271,25 @@ a {
   font-weight: 600;
   transition: background 0.3s ease;
 }
-
 .dis-btn {
-  background-color: red;
+  background-color: rgb(187, 3, 3);
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  background: rgb(187, 3, 3);
   font-weight: 600;
   transition: background 0.3s ease;
 }
 
-/* .dis-btn:hover {
-  background: rgb(187, 3, 3);
-} */
-
+/*! ==========================================================
+   Search & Tabs
+   ========================================================== */
 .action-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
-  /* margin-left: 2rem; */
 }
-
 #main-content {
   position: relative;
   top: 0;
@@ -274,11 +301,10 @@ a {
   flex-direction: column;
   overflow: hidden;
 }
-
 .search-content {
   display: flex;
   align-items: center;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border);
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
@@ -290,15 +316,11 @@ a {
   outline: none;
   width: 10rem;
 }
-
 .tab-container {
-  /* width: 100vw; */
   box-shadow: 0px 15px 10px -15px #111;
   margin-bottom: 10px;
 }
-
 .tab-bar {
-  /* padding: 0.5rem 0; */
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -310,13 +332,10 @@ a {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  /* border-bottom: 1px solid rgb(155, 145, 145); */
 }
-
 .f-justify-center {
   justify-content: center;
 }
-
 .tab-button {
   white-space: nowrap;
   padding: 0.5rem 1rem;
@@ -329,19 +348,16 @@ a {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
 }
-
 .tab-button:hover {
   background: #d9d9d9;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
 }
-
 .tab-button.active {
-  background: #007bff;
+  background: var(--color-primary);
   color: #fff;
-  border-color: #007bff;
+  border-color: var(--color-primary);
   box-shadow: 3px 3px 10px rgba(0, 123, 255, 0.3);
 }
-
 .tab-content {
   flex: 1;
   display: flex;
@@ -349,61 +365,50 @@ a {
   overflow: hidden;
 }
 
+/*! ==========================================================
+   Table
+   ========================================================== */
 .table tbody tr.selected {
   background-color: #ffe0e0;
 }
-
 .table input[type="checkbox"] {
   cursor: pointer;
   width: 16px;
   height: 16px;
 }
-
 .table-wrapper {
-  /* max-height: calc(100vh - 100px); */
   flex: 1;
   overflow-y: auto;
   overflow-x: auto;
-  /* border: 1px solid #ccc; */
   position: relative;
 }
-
 .table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   table-layout: auto;
 }
-
 .table th,
 .table td {
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-table-border);
   padding: 8px;
   text-align: left;
   white-space: nowrap;
-  /* background: #fff; */
 }
-
 .table th {
   position: sticky;
   top: 0;
-  background: #007bff;
+  background: var(--color-primary);
   color: #fff;
   z-index: 2;
 }
-
 .table tbody tr:nth-child(even) {
   background-color: #dfdfdf;
 }
-/* .table tbody tr:nth-child(even) {
-  background-color: #fff;
-} */
-
 .table th:first-child,
 .table td:first-child {
   width: 20px;
 }
-
 .table th:last-child,
 .table td:last-child {
   width: 60px;
@@ -411,10 +416,11 @@ a {
 .edit-btn {
   border: none;
   cursor: pointer;
-  /* background-color: red; */
 }
 
-/*! inventory Page Tab buttons  */
+/* ==========================================================
+   Utilities
+   ========================================================== */
 .box-shadow {
   box-shadow: 3px 3px 10px rgba(84, 89, 94, 0.3);
 }
