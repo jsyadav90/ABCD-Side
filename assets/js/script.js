@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
   const hamburger = document.getElementById("hamburger");
   const mainContent = document.getElementById("main-content");
-  const tabButtons = document.querySelectorAll(".tab-button");
-  const tabContents = document.querySelectorAll(".tab-content");
   const actionDiv = document.querySelector(".action-btn");
   const sidebarLinks = sidebar.querySelectorAll("a");
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
 
   //! ------------------ OVERLAY FOR MOBILE ------------------
   let overlay = document.createElement("div");
@@ -41,13 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // On page load: show sidebar on desktop, restore state only on mobile
+  // Desktop: always show sidebar, Mobile: restore state
   if (window.innerWidth > 1200) {
-    setSidebarState(true); // always show on desktop
+    setSidebarState(true);
   } else {
     const savedState = localStorage.getItem("sidebarState");
-    if (savedState) setSidebarState(savedState === "open");
-    else setSidebarState(false);
+    setSidebarState(savedState === "open");
   }
 
   // Hamburger toggle
@@ -55,17 +54,12 @@ document.addEventListener("DOMContentLoaded", () => {
     setSidebarState(sidebar.classList.contains("hide"));
   });
 
-  // Hide sidebar on resize if not manually toggled
+  // Hide sidebar on resize
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 1200) {
-      setSidebarState(true); // always show on desktop
-    } else {
-      const savedState = localStorage.getItem("sidebarState");
-      if (!savedState) setSidebarState(false);
-    }
+    if (window.innerWidth > 1200) setSidebarState(true);
   });
 
-  // Hide sidebar on link click
+  // Hide sidebar on link click (mobile)
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 1200) setSidebarState(false);
@@ -100,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (defaultTab) defaultTab.click();
   } else if (tabButtons.length) tabButtons[0].click();
 
-  //! ------------------ CHECKBOX LOGIC ------------------
+  //! ------------------ TABLE LOGIC (search & checkbox) ------------------
   function setupCheckboxLogic(table) {
     const theadCheckbox = table.querySelector("thead input[type='checkbox']");
     const tbodyCheckboxes = table.querySelectorAll("tbody input[type='checkbox']");
@@ -128,7 +122,6 @@ document.addEventListener("DOMContentLoaded", () => {
     theadCheckbox.indeterminate = !allChecked && someChecked;
   }
 
-  //! ------------------ SEARCH LOGIC ------------------
   function setupSearchLogic(table, actionDiv) {
     if (!actionDiv) return;
     const searchInput = actionDiv.querySelector("input[type='text']");
@@ -155,4 +148,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     searchInput.addEventListener("keydown", (e) => e.key === "Enter" && e.preventDefault());
   }
+
+  //! ------------------ INITIALIZE TABLES ------------------
+  const tables = document.querySelectorAll("table.table");
+  tables.forEach((table) => {
+    if (actionDiv) actionDiv.style.display = "flex";
+    setupCheckboxLogic(table);
+    setupSearchLogic(table, actionDiv);
+  });
 });
