@@ -39,7 +39,8 @@ html {
   font-family: var(--font-family);
   background: var(--color-bg-body);
   color: var(--color-text);
-  overflow-x: hidden;
+  overflow: hidden; /* Hide whole page scroll */
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
@@ -70,30 +71,21 @@ a {
   display: flex;
   gap: 1rem;
 }
-
 .topbar-right {
   margin-right: 3rem;
 }
-
 .logo a {
   font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
 }
-/*
 .hamburger {
-  margin-left: 20px;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
 }
-.hamburger span {
-  height: 3px;
-  width: 24px;
-  background: #fff;
-  border-radius: 2px;
-} */
+.hamburger:hover{
+  background-color: var(--color-primary-hover);
+  color: #fff;
+}
 
 /* ==========================
    TOPBAR SEARCH (GLOBAL)
@@ -111,7 +103,6 @@ a {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
-
 .search-container input[type="text"] {
   flex: 1;
   border: none;
@@ -120,22 +111,18 @@ a {
   font-size: 14px;
   color: #344054;
 }
-
 .search-container input::placeholder {
   color: #98a2b3;
 }
-
 .search-container:focus-within {
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
-
 .search-icon-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .search-container .search-icon {
   background: none;
   border: none;
@@ -144,7 +131,6 @@ a {
   font-size: 20px;
   transition: color 0.3s ease;
 }
-
 .search-container .search-icon:hover {
   color: #2563eb;
 }
@@ -173,6 +159,7 @@ a {
 .menu {
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* sidebar scroll if too many items */
 }
 .menu-item a {
   display: flex;
@@ -202,10 +189,12 @@ a {
    Main Layout
    ========================================================== */
 .main {
+  height: calc(100vh - var(--topbar-height) - 40px);
   margin-left: var(--sidebar-width);
   margin-top: var(--topbar-height);
-  padding: 24px;
+  padding: 20px;
   transition: margin-left 0.25s ease;
+  overflow-y: auto; /* scroll only inside main */
 }
 .main.fullwidth {
   margin-left: 0;
@@ -248,7 +237,7 @@ a {
 }
 .action-btn {
   display: flex;
-  justify-content: space-between;
+  gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 16px;
 }
@@ -292,18 +281,14 @@ a {
   display: flex;
   align-items: center;
 }
-
 .search-form input[type="text"]{
   padding: 10px ;
   font-size: 1rem;
   border-radius: 6px;
   outline: none;
   border: 1px solid #d0d5dd;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
 }
+
 /* ==========================================================
    Dashboard Cards (Summary)
    ========================================================== */
@@ -346,14 +331,26 @@ a {
 }
 .table {
   width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: collapse;
 }
 .table th,
 .table td {
   padding: 12px;
-  border-bottom: 1px solid var(--color-border);
+  border: 1px solid var(--color-border); 
   text-align: left;
+  min-width: 100px;
+}
+.table th:first-child,
+.table td:first-child {
+  min-width: 20px;
+  width: 20px;
+  text-align: center; 
+}
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  min-width: 20px;
+  width: 20px;
+  text-align: center; 
 }
 .table th {
   background: var(--color-primary);
@@ -366,7 +363,7 @@ a {
   background: #f9fafb;
 }
 .table tr:nth-child(even) {
-  background-color: #ddd;
+  background-color: #f2f2f2; 
 }
 .table input[type="checkbox"] {
   width: 16px;
@@ -400,7 +397,6 @@ a {
 /* ==========================================================
    Forms
    ========================================================== */
-
 .form-wrapper {
   background: #fff;
   padding: 2rem;
@@ -410,29 +406,24 @@ a {
   max-width: 1000px;
   margin: 2rem auto;
 }
-
 .form-wrapper h2 {
   margin-bottom: 1.5rem;
   font-size: 1.5rem;
   text-align: center;
 }
-
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
 }
-
 .form-group {
   display: flex;
   flex-direction: column;
 }
-
 .form-group label {
   font-weight: 600;
   margin-bottom: 0.3rem;
 }
-
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -441,12 +432,9 @@ a {
   border-radius: 6px;
   font-size: 1rem;
 }
-
-/* Remarks should take full width */
 .form-group.full-width {
   grid-column: span 2;
 }
-
 .form-actions {
   display: flex;
   justify-content: flex-end;
@@ -454,7 +442,6 @@ a {
   margin-top: 1.5rem;
   grid-column: span 2;
 }
-
 .btn {
   padding: 0.7rem 1.2rem;
   border: none;
@@ -462,12 +449,10 @@ a {
   cursor: pointer;
   font-size: 1rem;
 }
-
 .btn-primary {
   background: #007bff;
   color: white;
 }
-
 .btn-secondary {
   background: #6c757d;
   color: white;

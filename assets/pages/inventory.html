@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>ABCD ERP - Inventory</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/media.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-</head>
-<body>
-  <!-- Topbar -->
-   <header class="topbar">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABCD ERP - Inventory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!-- Topbar -->
+    <header class="topbar">
       <div class="topbar-left">
         <div class="logo"><a href="../../index.html">ABCD</a></div>
         <button id="hamburger" class="hamburger-btn material-icons hamburger">
-        menu
+          menu
         </button>
       </div>
 
@@ -38,274 +41,418 @@
       </div>
     </header>
 
-  <div class="container">
-    <!-- Sidebar -->
-    <nav class="sidebar show" id="sidebar">
-      <div class="menu">
-        <div class="menu-item"><a href="user.html"><span class="material-icons">person</span>User</a></div>
-        <div class="menu-item active"><a href="inventory.html"><span class="material-icons">inventory_2</span>Inventory</a></div>
-        <div class="menu-item"><a href="repair.html"><span class="material-icons">build</span>Repair</a></div>
-        <div class="menu-item"><a href="upgrade.html"><span class="material-icons">upgrade</span>Upgrade</a></div>
-        <div class="menu-item"><a href="issueitem.html"><span class="material-icons">assignment_returned</span>Issue To</a></div>
-        <div class="menu-item"><a href="report.html"><span class="material-icons">bar_chart</span>Reports</a></div>
-      </div>
-      <div class="sidebar-footer">
-        <span class="material-icons">account_circle</span>
-        <span>Logged User</span>
-      </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="main" id="main-content">
-      <!-- Tab Bar -->
-      <div class="tab-bar box-shadow">
-        <button class="tab-button active" data-target="summary">Summary</button>
-        <button class="tab-button" data-target="desktop">Desktop</button>
-        <button class="tab-button" data-target="cpu">CPU</button>
-        <button class="tab-button" data-target="monitor">Monitor</button>
-        <button class="tab-button" data-target="laptop">Laptop</button>
-        <button class="tab-button" data-target="printer">Printer</button>
-        <button class="tab-button" data-target="projector">Projector</button>
-        <button class="tab-button" data-target="net-switch">Network Switch</button>
-        <button class="tab-button" data-target="ups">UPS</button>
-      </div>
-
-      <!-- Action Buttons -->
-      <div class="action-btn box-shadow">
-        <div class="action-controls">
-          <button class="btn filter-btn">Filter</button>
-          <form class="search-form">
-            <input type="text" placeholder="Search..." />
-          </form>
-        </div>
-        <div class="action-controls">
-          <button class="btn add-btn">Add New</button>
-          <button class="btn dis-btn">Disable</button>
-        </div>
-      </div>
-
-      <!--! Tab Contents -->
-         <div class="tab-content" id="summary">
-        <h2 class="page-title">Inventory Overview</h2>
-        <div class="dashboard-cards">
-          <div class="card">
-            <span class="material-icons card-icon">computer</span>
-            <div>
-              <h3>120</h3>
-              <p>Desktops</p>
-            </div>
+    <div class="container">
+      <!-- Sidebar -->
+      <nav class="sidebar show" id="sidebar">
+        <div class="menu">
+          <div class="menu-item">
+            <a href="user.html"
+              ><span class="material-icons">person</span>User</a
+            >
           </div>
-          <div class="card">
-            <span class="material-icons card-icon">laptop</span>
-            <div>
-              <h3>85</h3>
-              <p>Laptops</p>
-            </div>
+          <div class="menu-item active">
+            <a href="inventory.html"
+              ><span class="material-icons">inventory_2</span>Inventory</a
+            >
           </div>
-          <div class="card">
-            <span class="material-icons card-icon">print</span>
-            <div>
-              <h3>22</h3>
-              <p>Printers</p>
-            </div>
+          <div class="menu-item">
+            <a href="repair.html"
+              ><span class="material-icons">build</span>Repair</a
+            >
           </div>
-          <div class="card">
-            <span class="material-icons card-icon">dns</span>
-            <div>
-              <h3>12</h3>
-              <p>Switches</p>
-            </div>
+          <div class="menu-item">
+            <a href="upgrade.html"
+              ><span class="material-icons">upgrade</span>Upgrade</a
+            >
+          </div>
+          <div class="menu-item">
+            <a href="issueitem.html"
+              ><span class="material-icons">assignment_returned</span>Issue
+              To</a
+            >
+          </div>
+          <div class="menu-item">
+            <a href="report.html"
+              ><span class="material-icons">bar_chart</span>Reports</a
+            >
           </div>
         </div>
-      </div>
-
-
-      <!--! Desktop -->
-      <div class="tab-content" id="desktop" style="display: none;">
-        <div class="table-wrapper">
-          <table class="table" id="desktop-table">
-            <thead>
-              <tr>
-                <th><input type="checkbox"/></th>
-                <th>Action</th>
-                <th>Item Type</th>
-                <th>Asset ID</th>
-                <th>CPU Asset ID</th>
-                <th>Monitor Asset ID</th>
-                <th>Mouse Asset ID</th>
-                <th>Keyboard Asset ID</th>
-                <th>Location</th>
-                <th>Assigned To</th>
-                <th>Status</th>
-                <th>Remarks</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td><button class="edit-btn"><img src="../icons/edit-button.png" alt="Edit" class="icon"/></button></td>
-                <td>Desktop</td>
-                <td>IT-D001</td>
-                <td>SN-D123456</td>
-                <td>SN-M123456</td>
-                <td>SN-MO12345</td>
-                <td>SN-KB12345</td>
-                <td>Admin Office</td>
-                <td>Sunil Sharma</td>
-                <td>In Use</td>
-                <td>Running well</td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td><button class="edit-btn"><img src="../icons/edit-button.png" alt="Edit" class="icon"/></button></td>
-                <td>Desktop</td>
-                <td>IT-D002</td>
-                <td>SN-D654321</td>
-                <td>SN-M654321</td>
-                <td>SN-MO65432</td>
-                <td>SN-KB65432</td>
-                <td>Store Room</td>
-                <td>Unassigned</td>
-                <td>In Stock</td>
-                <td>Backup unit</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="sidebar-footer">
+          <span class="material-icons">account_circle</span>
+          <span>Logged User</span>
         </div>
-      </div>
+      </nav>
 
-      <!-- Placeholder tabs with tables -->
-       <!--! CPU -->
-      <div class="tab-content" id="cpu" style="display: none;">
-        <div class="table-wrapper">
-          <table class="table" id="cpu-table">
-            <thead>
-              <tr>
-                <th><input type="checkbox"/></th>
-                <th>Action</th>
-                <th>Item Type</th>
-                <th>Asset ID</th>
-                <th>Location</th>
-                <th>Assigned To</th>
-                <th>Status</th>
-                <th>Remarks</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td><button class="edit-btn"><img src="../icons/edit-button.png" alt="Edit" class="icon"/></button></td>
-                <td>CPU</td>
-                <td>CPU-001</td>
-                <td>Admin Office</td>
-                <td>Sunil Sharma</td>
-                <td>In Use</td>
-                <td>Good condition</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- Main Content -->
+      <main class="main" id="main-content">
+        <!-- Tab Bar -->
+        <div class="tab-bar box-shadow">
+          <button class="tab-button active" data-target="summary">
+            Summary
+          </button>
+          <button class="tab-button" data-target="desktop">Desktop</button>
+          <button class="tab-button" data-target="cpu">CPU</button>
+          <button class="tab-button" data-target="monitor">Monitor</button>
+          <button class="tab-button" data-target="laptop">Laptop</button>
+          <button class="tab-button" data-target="printer">Printer</button>
+          <button class="tab-button" data-target="projector">Projector</button>
+          <button class="tab-button" data-target="net-switch">
+            Network Switch
+          </button>
+          <button class="tab-button" data-target="ups">UPS</button>
         </div>
-      </div>
 
-      <!-- Similar tables for monitor, laptop, printer, projector, net-switch, ups -->
-       <!--! Monitor -->
-      <div class="tab-content" id="monitor" style="display: none;">
-        <div class="table-wrapper">
-          <table class="table" id="monitor-table">
-            <thead>
-              <tr>
-                <th><input type="checkbox"/></th>
-                <th>Action</th>
-                <th>Item Type</th>
-                <th>Asset ID</th>
-                <th>Location</th>
-                <th>Assigned To</th>
-                <th>Status</th>
-                <th>Remarks</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="checkbox"/></td>
-                <td><button class="edit-btn"><img src="../icons/edit-button.png" alt="Edit" class="icon"/></button></td>
-                <td>Monitor</td>
-                <td>Monitor-001</td>
-                <td>Admin Office</td>
-                <td>Sunil Sharma</td>
-                <td>In Use</td>
-                <td>Good condition</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Action Buttons -->
+        <div class="action-btn box-shadow">
+          <div class="action-controls">
+            <button class="btn filter-btn">Filter</button>
+            <form class="search-form">
+              <input type="text" placeholder="Search..." />
+            </form>
+          </div>
+          <div class="action-controls">
+            <button class="btn add-btn">Add New</button>
+            <button class="btn dis-btn">Disable</button>
+          </div>
         </div>
-      </div>
-      <div class="tab-content" id="laptop" style="display: none;">
-        <p>No data available.</p>
-      </div>
-      <div class="tab-content" id="printer" style="display: none;">
-        <p>No data available.</p>
-      </div>
-      <div class="tab-content" id="projector" style="display: none;">
-        <p>No data available.</p>
-      </div>
-      <div class="tab-content" id="net-switch" style="display: none;">
-        <p>No data available.</p>
-      </div>
-      <div class="tab-content" id="ups" style="display: none;">
-        <p>No data available.</p>
-      </div>
-    </main>
-  </div>
 
-  <script src="../js/script.js"></script>
-  <script>
-    //! ------------------ TAB LOGIC ------------------
-document.addEventListener("DOMContentLoaded", function () {
-  const actionDiv = document.querySelector(".action-btn");
-  const tabButtons = document.querySelectorAll(".tab-button");
-  const tabContents = document.querySelectorAll(".tab-content");
+        <!--! Tab Contents -->
+        <div class="tab-content" id="summary">
+          <h2 class="page-title">Inventory Overview</h2>
+          <div class="dashboard-cards">
+            <div class="card">
+              <span class="material-icons card-icon">computer</span>
+              <div>
+                <h3>120</h3>
+                <p>Desktops</p>
+              </div>
+            </div>
+            <div class="card">
+              <span class="material-icons card-icon">laptop</span>
+              <div>
+                <h3>85</h3>
+                <p>Laptops</p>
+              </div>
+            </div>
+            <div class="card">
+              <span class="material-icons card-icon">print</span>
+              <div>
+                <h3>22</h3>
+                <p>Printers</p>
+              </div>
+            </div>
+            <div class="card">
+              <span class="material-icons card-icon">dns</span>
+              <div>
+                <h3>12</h3>
+                <p>Switches</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  //! Hide action buttons on page load if summary is active
-  const activeTab = document.querySelector(".tab-button.active");
-  if (activeTab && activeTab.getAttribute("data-target") === "summary") {
-    actionDiv.style.display = "none";
-  } else {
-    // Show only if the tab has a table
-    const targetId = activeTab?.getAttribute("data-target");
-    const table = targetId ? document.getElementById(targetId)?.querySelector("table.table") : null;
-    if (table) actionDiv.style.display = "flex";
-    else actionDiv.style.display = "none";
-  }
+        <!--! Desktop -->
+        <div class="tab-content" id="desktop" style="display: none">
+          <div class="table-wrapper">
+            <table class="table" id="desktop-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Item Type</th>
+                  <th>Asset ID</th>
+                  <th>CPU Asset ID</th>
+                  <th>Monitor Asset ID</th>
+                  <th>Mouse Asset ID</th>
+                  <th>Keyboard Asset ID</th>
+                  <th>Location</th>
+                  <th>Assigned To</th>
+                  <th>Status</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>Desktop</td>
+                  <td>IT-D001</td>
+                  <td>SN-D123456</td>
+                  <td>SN-M123456</td>
+                  <td>SN-MO12345</td>
+                  <td>SN-KB12345</td>
+                  <td>Admin Office</td>
+                  <td>Sunil Sharma</td>
+                  <td>In Use</td>
+                  <td>Running well</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>Desktop</td>
+                  <td>IT-D002</td>
+                  <td>SN-D654321</td>
+                  <td>SN-M654321</td>
+                  <td>SN-MO65432</td>
+                  <td>SN-KB65432</td>
+                  <td>Store Room</td>
+                  <td>Unassigned</td>
+                  <td>In Stock</td>
+                  <td>Backup unit</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-  //! Tab click logic
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      tabButtons.forEach((btn) => btn.classList.remove("active"));
-      tabContents.forEach((content) => (content.style.display = "none"));
+        <!-- Placeholder tabs with tables -->
+        <!--! CPU -->
+        <div class="tab-content" id="cpu" style="display: none">
+          <div class="table-wrapper">
+            <table class="table" id="cpu-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Asset ID</th>
+                  <th>Asset Tag</th>
+                  <th>Hostname</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Processor</th>
+                  <th>Generation</th>
+                  <th>CPU Speed</th>
+                  <th>Cores</th>
+                  <th>Threads</th>
+                  <th>RAM Size</th>
+                  <th>RAM Type</th>
+                  <th>Storage Type</th>
+                  <th>Storage Capacity</th>
+                  <th>Graphics</th>
+                  <th>Serial Number</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
+                  <th>OS</th>
+                  <th>OS Version</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Vendor</th>
+                  <th>Invoice Number</th>
+                  <th>Last Service Date</th>
+                  <th>Next Service Due</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>CPU-001</td>
+                  <td>AT-1001</td>
+                  <td>Workstation-01</td>
+                  <td>Dell</td>
+                  <td>OptiPlex 7090</td>
+                  <td>Intel i7</td>
+                  <td>10th Gen</td>
+                  <td>3.6 GHz</td>
+                  <td>8</td>
+                  <td>16</td>
+                  <td>16 GB</td>
+                  <td>DDR4</td>
+                  <td>SSD</td>
+                  <td>512 GB</td>
+                  <td>Intel UHD 630</td>
+                  <td>SN123456</td>
+                  <td>2023-01-15</td>
+                  <td>2026-01-15</td>
+                  <td>Windows 11 Pro</td>
+                  <td>21H2</td>
+                  <td>John Doe</td>
+                  <td>Room 101</td>
+                  <td>Active</td>
+                  <td>Dell</td>
+                  <td>INV-2023-001</td>
+                  <td>2024-06-01</td>
+                  <td>2025-06-01</td>
+                  <td>All good</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>CPU-002</td>
+  <td>AT-1002</td>
+  <td>Workstation-02</td>
+  <td>HP</td>
+  <td>EliteDesk 800</td>
+  <td>Intel i5</td>
+  <td>11th Gen</td>
+  <td>3.0 GHz</td>
+  <td>6</td>
+  <td>12</td>
+  <td>8 GB</td>
+  <td>DDR4</td>
+  <td>HDD</td>
+  <td>1 TB</td>
+  <td>Intel UHD 750</td>
+  <td>SN654321</td>
+  <td>2022-05-10</td>
+  <td>2025-05-10</td>
+  <td>Windows 10 Pro</td>
+  <td>21H1</td>
+  <td>Jane Smith</td>
+  <td>Room 102</td>
+  <td>Active</td>
+  <td>HP</td>
+  <td>INV-2022-045</td>
+  <td>2023-05-10</td>
+  <td>2024-05-10</td>
+  <td>Needs RAM upgrade</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
-      button.classList.add("active");
-      const targetId = button.getAttribute("data-target");
-      const targetContent = document.getElementById(targetId);
+        <!-- Similar tables for monitor, laptop, printer, projector, net-switch, ups -->
+        <!--! Monitor -->
+        <div class="tab-content" id="monitor" style="display: none">
+          <div class="table-wrapper">
+            <table class="table" id="monitor-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Item Type</th>
+                  <th>Asset ID</th>
+                  <th>Location</th>
+                  <th>Assigned To</th>
+                  <th>Status</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>Monitor</td>
+                  <td>Monitor-001</td>
+                  <td>Admin Office</td>
+                  <td>Sunil Sharma</td>
+                  <td>In Use</td>
+                  <td>Good condition</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="tab-content" id="laptop" style="display: none">
+          <p>No data available.</p>
+        </div>
+        <div class="tab-content" id="printer" style="display: none">
+          <p>No data available.</p>
+        </div>
+        <div class="tab-content" id="projector" style="display: none">
+          <p>No data available.</p>
+        </div>
+        <div class="tab-content" id="net-switch" style="display: none">
+          <p>No data available.</p>
+        </div>
+        <div class="tab-content" id="ups" style="display: none">
+          <p>No data available.</p>
+        </div>
+      </main>
+    </div>
 
-      if (targetContent) {
-        targetContent.style.display = "block";
+    <script src="../js/script.js"></script>
+    <script>
+      //! ------------------ TAB LOGIC ------------------
+      document.addEventListener("DOMContentLoaded", function () {
+        const actionDiv = document.querySelector(".action-btn");
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
 
-        if (targetId === "summary") {
+        //! Hide action buttons on page load if summary is active
+        const activeTab = document.querySelector(".tab-button.active");
+        if (activeTab && activeTab.getAttribute("data-target") === "summary") {
           actionDiv.style.display = "none";
         } else {
-          const table = targetContent.querySelector("table.table");
-          if (table) {
-            actionDiv.style.display = "flex";
-          } else {
-            actionDiv.style.display = "none";
-          }
+          // Show only if the tab has a table
+          const targetId = activeTab?.getAttribute("data-target");
+          const table = targetId
+            ? document.getElementById(targetId)?.querySelector("table.table")
+            : null;
+          if (table) actionDiv.style.display = "flex";
+          else actionDiv.style.display = "none";
         }
-      }
-    });
-  });
-});
 
+        //! Tab click logic
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) => (content.style.display = "none"));
 
-  </script>
-</body>
+            button.classList.add("active");
+            const targetId = button.getAttribute("data-target");
+            const targetContent = document.getElementById(targetId);
+
+            if (targetContent) {
+              targetContent.style.display = "block";
+
+              if (targetId === "summary") {
+                actionDiv.style.display = "none";
+              } else {
+                const table = targetContent.querySelector("table.table");
+                if (table) {
+                  actionDiv.style.display = "flex";
+                } else {
+                  actionDiv.style.display = "none";
+                }
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
