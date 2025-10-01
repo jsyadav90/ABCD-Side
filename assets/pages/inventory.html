@@ -111,7 +111,7 @@
             </form>
           </div>
           <div class="action-controls">
-            <button class="btn add-btn">Add New</button>
+            <button class="btn add-btn" id="addNewBtn">Add New</button>
             <button class="btn dis-btn">Disable</button>
           </div>
         </div>
@@ -231,8 +231,6 @@
                   <th><input type="checkbox" /></th>
                   <th>Action</th>
                   <th>Asset ID</th>
-                  <th>Asset Tag</th>
-                  <th>Hostname</th>
                   <th>Brand</th>
                   <th>Model</th>
                   <th>Processor</th>
@@ -248,15 +246,10 @@
                   <th>Serial Number</th>
                   <th>Purchase Date</th>
                   <th>Warranty Expiry</th>
-                  <th>OS</th>
-                  <th>OS Version</th>
                   <th>Assigned To</th>
                   <th>Location</th>
                   <th>Status</th>
                   <th>Vendor</th>
-                  <th>Invoice Number</th>
-                  <th>Last Service Date</th>
-                  <th>Next Service Due</th>
                   <th>Remarks</th>
                 </tr>
               </thead>
@@ -273,8 +266,6 @@
                     </button>
                   </td>
                   <td>CPU-001</td>
-                  <td>AT-1001</td>
-                  <td>Workstation-01</td>
                   <td>Dell</td>
                   <td>OptiPlex 7090</td>
                   <td>Intel i7</td>
@@ -290,15 +281,10 @@
                   <td>SN123456</td>
                   <td>2023-01-15</td>
                   <td>2026-01-15</td>
-                  <td>Windows 11 Pro</td>
-                  <td>21H2</td>
                   <td>John Doe</td>
                   <td>Room 101</td>
                   <td>Active</td>
                   <td>Dell</td>
-                  <td>INV-2023-001</td>
-                  <td>2024-06-01</td>
-                  <td>2025-06-01</td>
                   <td>All good</td>
                 </tr>
                 <tr>
@@ -313,33 +299,26 @@
                     </button>
                   </td>
                   <td>CPU-002</td>
-  <td>AT-1002</td>
-  <td>Workstation-02</td>
-  <td>HP</td>
-  <td>EliteDesk 800</td>
-  <td>Intel i5</td>
-  <td>11th Gen</td>
-  <td>3.0 GHz</td>
-  <td>6</td>
-  <td>12</td>
-  <td>8 GB</td>
-  <td>DDR4</td>
-  <td>HDD</td>
-  <td>1 TB</td>
-  <td>Intel UHD 750</td>
-  <td>SN654321</td>
-  <td>2022-05-10</td>
-  <td>2025-05-10</td>
-  <td>Windows 10 Pro</td>
-  <td>21H1</td>
-  <td>Jane Smith</td>
-  <td>Room 102</td>
-  <td>Active</td>
-  <td>HP</td>
-  <td>INV-2022-045</td>
-  <td>2023-05-10</td>
-  <td>2024-05-10</td>
-  <td>Needs RAM upgrade</td>
+                  <td>HP</td>
+                  <td>EliteDesk 800</td>
+                  <td>Intel i5</td>
+                  <td>11th Gen</td>
+                  <td>3.0 GHz</td>
+                  <td>6</td>
+                  <td>12</td>
+                  <td>8 GB</td>
+                  <td>DDR4</td>
+                  <td>HDD</td>
+                  <td>1 TB</td>
+                  <td>Intel UHD 750</td>
+                  <td>SN654321</td>
+                  <td>2022-05-10</td>
+                  <td>2025-05-10</td>
+                  <td>Jane Smith</td>
+                  <td>Room 102</td>
+                  <td>Active</td>
+                  <td>HP</td>
+                  <td>Needs RAM upgrade</td>
                 </tr>
               </tbody>
             </table>
@@ -355,11 +334,20 @@
                 <tr>
                   <th><input type="checkbox" /></th>
                   <th>Action</th>
-                  <th>Item Type</th>
                   <th>Asset ID</th>
-                  <th>Location</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Serial Number</th>
+                  <th>Screen Size</th>
+                  <th>Resolution</th>
+                  <th>Aspect Ratio</th>
+                  <th>Ports</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
                   <th>Assigned To</th>
+                  <th>Location</th>
                   <th>Status</th>
+                  <th>Vendor</th>
                   <th>Remarks</th>
                 </tr>
               </thead>
@@ -375,83 +363,571 @@
                       />
                     </button>
                   </td>
-                  <td>Monitor</td>
-                  <td>Monitor-001</td>
-                  <td>Admin Office</td>
-                  <td>Sunil Sharma</td>
-                  <td>In Use</td>
-                  <td>Good condition</td>
+                  <td>MON-001</td>
+                  <td>Dell</td>
+                  <td>P2419H</td>
+                  <td>SNM123456</td>
+                  <td>24"</td>
+                  <td>1920x1080</td>
+                  <td>16:9</td>
+                  <td>HDMI, DisplayPort, VGA</td>
+                  <td>2023-02-12</td>
+                  <td>2026-02-12</td>
+                  <td>John Doe</td>
+                  <td>Room 101</td>
+                  <td>Active</td>
+                  <td>Dell</td>
+                  <td>Working fine</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>MON-002</td>
+                  <td>HP</td>
+                  <td>EliteDisplay E243</td>
+                  <td>SNM654321</td>
+                  <td>23.8"</td>
+                  <td>1920x1080</td>
+                  <td>16:9</td>
+                  <td>HDMI, VGA</td>
+                  <td>2022-06-05</td>
+                  <td>2025-06-05</td>
+                  <td>Jane Smith</td>
+                  <td>Room 102</td>
+                  <td>Active</td>
+                  <td>HP</td>
+                  <td>Minor scratches on bezel</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
         <div class="tab-content" id="laptop" style="display: none">
-          <p>No data available.</p>
+          <div class="table-wrapper">
+            <table class="table" id="laptop-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Asset ID</th>
+                  <th>Hostname</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Processor</th>
+                  <th>Generation</th>
+                  <th>CPU Speed</th>
+                  <th>Cores</th>
+                  <th>Threads</th>
+                  <th>RAM Size</th>
+                  <th>RAM Type</th>
+                  <th>Storage Type</th>
+                  <th>Storage Capacity</th>
+                  <th>Graphics</th>
+                  <th>Screen Size</th>
+                  <th>Resolution</th>
+                  <th>Adapter Serial Number</th>
+                  <th>Laptop Serial Number</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Vendor</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>LAP-001</td>
+                  <td>Laptop-01</td>
+                  <td>Lenovo</td>
+                  <td>ThinkPad T14</td>
+                  <td>Intel i7</td>
+                  <td>11th Gen</td>
+                  <td>3.4 GHz</td>
+                  <td>8</td>
+                  <td>16</td>
+                  <td>16 GB</td>
+                  <td>DDR4</td>
+                  <td>SSD</td>
+                  <td>512 GB</td>
+                  <td>Intel Iris Xe</td>
+                  <td>14"</td>
+                  <td>1920x1080</td>
+                  <td>ADP12345</td>
+                  <td>SN-LAP12345</td>
+                  <td>2023-03-15</td>
+                  <td>2026-03-15</td>
+                  <td>John Doe</td>
+                  <td>Room 201</td>
+                  <td>Active</td>
+                  <td>Lenovo</td>
+                  <td>Good condition</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>LAP-002</td>
+                  <td>Laptop-02</td>
+                  <td>HP</td>
+                  <td>EliteBook 840 G8</td>
+                  <td>Intel i5</td>
+                  <td>10th Gen</td>
+                  <td>2.8 GHz</td>
+                  <td>6</td>
+                  <td>12</td>
+                  <td>8 GB</td>
+                  <td>DDR4</td>
+                  <td>SSD</td>
+                  <td>256 GB</td>
+                  <td>Intel UHD 620</td>
+                  <td>14"</td>
+                  <td>1920x1080</td>
+                  <td>ADP67890</td>
+                  <td>SN-LAP67890</td>
+                  <td>2022-08-20</td>
+                  <td>2025-08-20</td>
+                  <td>Jane Smith</td>
+                  <td>Room 202</td>
+                  <td>Active</td>
+                  <td>HP</td>
+                  <td>Battery needs replacement soon</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="tab-content" id="printer" style="display: none">
-          <p>No data available.</p>
+          <div class="table-wrapper">
+            <table class="table" id="printer-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Asset ID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Serial Number</th>
+                  <th>Type</th>
+                  <!-- Inkjet, Laser, Dot Matrix -->
+                  <th>Function</th>
+                  <!-- Print, Scan, Copy, Fax -->
+                  <th>Print Technology</th>
+                  <th>Print Speed (PPM)</th>
+                  <th>Resolution</th>
+                  <th>Color / Mono</th>
+                  <th>Connectivity</th>
+                  <!-- USB, Wi-Fi, Ethernet -->
+                  <th>Duplex</th>
+                  <!-- Yes/No -->
+                  <th>Toner/Cartridge Model</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Vendor</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>PRN-001</td>
+                  <td>HP</td>
+                  <td>LaserJet Pro M404dn</td>
+                  <td>SN-PRN12345</td>
+                  <td>Laser</td>
+                  <td>Print Only</td>
+                  <td>Laser</td>
+                  <td>38 PPM</td>
+                  <td>1200x1200 dpi</td>
+                  <td>Mono</td>
+                  <td>USB, Ethernet</td>
+                  <td>Yes</td>
+                  <td>CF259A</td>
+                  <td>2022-05-12</td>
+                  <td>2025-05-12</td>
+                  <td>Office Reception</td>
+                  <td>Ground Floor</td>
+                  <td>Active</td>
+                  <td>HP</td>
+                  <td>Working fine</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>PRN-002</td>
+                  <td>Canon</td>
+                  <td>imageCLASS MF445dw</td>
+                  <td>SN-PRN67890</td>
+                  <td>Laser</td>
+                  <td>Print/Scan/Copy/Fax</td>
+                  <td>Laser</td>
+                  <td>40 PPM</td>
+                  <td>600x600 dpi</td>
+                  <td>Color</td>
+                  <td>Wi-Fi, USB, Ethernet</td>
+                  <td>Yes</td>
+                  <td>Canon 057H</td>
+                  <td>2023-03-08</td>
+                  <td>2026-03-08</td>
+                  <td>Accounts Dept</td>
+                  <td>First Floor</td>
+                  <td>Active</td>
+                  <td>Canon</td>
+                  <td>Paper jam issue reported occasionally</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="tab-content" id="projector" style="display: none">
-          <p>No data available.</p>
+          <div class="table-wrapper">
+            <table class="table" id="projector-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Asset ID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Serial Number</th>
+                  <th>Projector Type</th>
+                  <!-- DLP, LCD, LED, Laser -->
+                  <th>Resolution</th>
+                  <th>Brightness (Lumens)</th>
+                  <th>Contrast Ratio</th>
+                  <th>Aspect Ratio</th>
+                  <th>Projection Size</th>
+                  <th>Throw Ratio</th>
+                  <th>Ports</th>
+                  <!-- HDMI, VGA, USB, LAN -->
+                  <th>Lamp Hours Used</th>
+                  <th>Max Lamp Life</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Vendor</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>PROJ-001</td>
+                  <td>Epson</td>
+                  <td>EB-S41</td>
+                  <td>SN-PROJ12345</td>
+                  <td>LCD</td>
+                  <td>800x600</td>
+                  <td>3300 Lumens</td>
+                  <td>15,000:1</td>
+                  <td>4:3</td>
+                  <td>30" – 350"</td>
+                  <td>1.44 – 1.72</td>
+                  <td>HDMI, VGA, USB</td>
+                  <td>1500</td>
+                  <td>6000 hrs</td>
+                  <td>2022-07-15</td>
+                  <td>2025-07-15</td>
+                  <td>Training Room</td>
+                  <td>Room 301</td>
+                  <td>Active</td>
+                  <td>Epson</td>
+                  <td>Good condition</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>PROJ-002</td>
+                  <td>BenQ</td>
+                  <td>MW535A</td>
+                  <td>SN-PROJ67890</td>
+                  <td>DLP</td>
+                  <td>1280x800</td>
+                  <td>3600 Lumens</td>
+                  <td>20,000:1</td>
+                  <td>16:10</td>
+                  <td>36" – 200"</td>
+                  <td>1.96 – 2.15</td>
+                  <td>HDMI, VGA</td>
+                  <td>2100</td>
+                  <td>7000 hrs</td>
+                  <td>2023-04-20</td>
+                  <td>2026-04-20</td>
+                  <td>Conference Hall</td>
+                  <td>Room 105</td>
+                  <td>Active</td>
+                  <td>BenQ</td>
+                  <td>Lamp replacement due in 1 year</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="tab-content" id="net-switch" style="display: none">
-          <p>No data available.</p>
+          <div class="table-wrapper">
+            <table class="table" id="net-switch-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Asset ID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Serial Number</th>
+                  <th>Switch Type</th>
+                  <!-- Managed, Unmanaged, PoE, Layer 2/3 -->
+                  <th>Ports</th>
+                  <th>Port Speed</th>
+                  <!-- 100 Mbps / 1 Gbps / 10 Gbps -->
+                  <th>Uplink Ports</th>
+                  <th>PoE Support</th>
+                  <!-- Yes/No -->
+                  <th>Power Capacity</th>
+                  <th>Firmware Version</th>
+                  <th>IP Address</th>
+                  <th>MAC Address</th>
+                  <th>Rack Location</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                  <th>Vendor</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>SW-001</td>
+                  <td>Cisco</td>
+                  <td>Catalyst 2960X</td>
+                  <td>SN-SW12345</td>
+                  <td>Managed, Layer 2</td>
+                  <td>48</td>
+                  <td>1 Gbps</td>
+                  <td>4 SFP</td>
+                  <td>No</td>
+                  <td>N/A</td>
+                  <td>15.2(7)E3</td>
+                  <td>192.168.1.10</td>
+                  <td>00:1A:2B:3C:4D:5E</td>
+                  <td>Rack 1 - Slot 3</td>
+                  <td>2021-11-10</td>
+                  <td>2026-11-10</td>
+                  <td>Network Team</td>
+                  <td>Data Center</td>
+                  <td>Active</td>
+                  <td>Cisco</td>
+                  <td>Running stable</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>SW-002</td>
+                  <td>Netgear</td>
+                  <td>GS728TP</td>
+                  <td>SN-SW67890</td>
+                  <td>Managed, PoE, Layer 2+</td>
+                  <td>24</td>
+                  <td>1 Gbps</td>
+                  <td>2 SFP</td>
+                  <td>Yes</td>
+                  <td>190W</td>
+                  <td>6.0.1.24</td>
+                  <td>192.168.1.11</td>
+                  <td>00:5E:AB:9F:23:77</td>
+                  <td>Rack 2 - Slot 1</td>
+                  <td>2022-03-15</td>
+                  <td>2027-03-15</td>
+                  <td>Network Team</td>
+                  <td>Server Room</td>
+                  <td>Active</td>
+                  <td>Netgear</td>
+                  <td>Firmware upgrade planned</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="tab-content" id="ups" style="display: none">
-          <p>No data available.</p>
+          <div class="table-wrapper">
+            <table class="table" id="monitor-table">
+              <thead>
+                <tr>
+                  <th><input type="checkbox" /></th>
+                  <th>Action</th>
+                  <th>Asset ID</th>
+                  <th>Brand</th>
+                  <th>Model</th>
+                  <th>Capacity (VA/W)</th>
+                  <th>Battery Type</th>
+                  <th>Battery Backup (Minutes)</th>
+                  <th>Input Voltage</th>
+                  <th>Output Voltage</th>
+                  <th>Outlets</th>
+                  <th>Serial Number</th>
+                  <th>Purchase Date</th>
+                  <th>Warranty Expiry</th>
+                  <th>Assigned To</th>
+                  <th>Location</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>UPS-1001</td>
+                  <td>APC</td>
+                  <td>Back-UPS 1100VA</td>
+                  <td>1100VA / 660W</td>
+                  <td>Lead Acid</td>
+                  <td>30</td>
+                  <td>230V</td>
+                  <td>230V</td>
+                  <td>6</td>
+                  <td>SN-UPS-3321</td>
+                  <td>2023-01-15</td>
+                  <td>2026-01-15</td>
+                  <td>Server Room</td>
+                  <td>Delhi Branch</td>
+                  <td>Active</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox" /></td>
+                  <td>
+                    <button class="edit-btn">
+                      <img
+                        src="../icons/edit-button.png"
+                        alt="Edit"
+                        class="icon"
+                      />
+                    </button>
+                  </td>
+                  <td>UPS-1002</td>
+                  <td>Microtek</td>
+                  <td>EB 700VA</td>
+                  <td>700VA / 390W</td>
+                  <td>SMF Battery</td>
+                  <td>15</td>
+                  <td>220V</td>
+                  <td>220V</td>
+                  <td>3</td>
+                  <td>SN-UPS-4425</td>
+                  <td>2022-09-10</td>
+                  <td>2025-09-10</td>
+                  <td>Lab-3</td>
+                  <td>Gurgaon Branch</td>
+                  <td>In Repair</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </main>
     </div>
 
     <script src="../js/script.js"></script>
     <script>
-      //! ------------------ TAB LOGIC ------------------
-      document.addEventListener("DOMContentLoaded", function () {
-        const actionDiv = document.querySelector(".action-btn");
-        const tabButtons = document.querySelectorAll(".tab-button");
-        const tabContents = document.querySelectorAll(".tab-content");
-
-        //! Hide action buttons on page load if summary is active
+      // Get currently active tab
+      const addBtn = document.getElementById("addNewBtn");
+      addBtn.addEventListener("click", () => {
         const activeTab = document.querySelector(".tab-button.active");
-        if (activeTab && activeTab.getAttribute("data-target") === "summary") {
-          actionDiv.style.display = "none";
-        } else {
-          // Show only if the tab has a table
-          const targetId = activeTab?.getAttribute("data-target");
-          const table = targetId
-            ? document.getElementById(targetId)?.querySelector("table.table")
-            : null;
-          if (table) actionDiv.style.display = "flex";
-          else actionDiv.style.display = "none";
+        if (activeTab) {
+          const type = activeTab.getAttribute("data-target"); // e.g., "monitor", "projector"
+          window.location.href = `add-items.html?type=${type}`;
         }
-
-        //! Tab click logic
-        tabButtons.forEach((button) => {
-          button.addEventListener("click", () => {
-            tabButtons.forEach((btn) => btn.classList.remove("active"));
-            tabContents.forEach((content) => (content.style.display = "none"));
-
-            button.classList.add("active");
-            const targetId = button.getAttribute("data-target");
-            const targetContent = document.getElementById(targetId);
-
-            if (targetContent) {
-              targetContent.style.display = "block";
-
-              if (targetId === "summary") {
-                actionDiv.style.display = "none";
-              } else {
-                const table = targetContent.querySelector("table.table");
-                if (table) {
-                  actionDiv.style.display = "flex";
-                } else {
-                  actionDiv.style.display = "none";
-                }
-              }
-            }
-          });
-        });
       });
     </script>
   </body>
