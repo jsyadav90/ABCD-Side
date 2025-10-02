@@ -1,4 +1,10 @@
-/* ==========================================================
+/*! ==========================================================
+in case if any problem 
+
+this is complete file before add submenu
+  ========================================================== */
+
+/*! ==========================================================
    Global Variables - Modern ERP Theme
    ========================================================== */
 :root {
@@ -209,104 +215,6 @@ a.back-link::before {
   font-size: 0.95rem;
   border-top: 1px solid #334155;
 }
-
-/* ==========================================================
-   Submenu (Right Opening)
-   ========================================================== */
-/* ==========================================================
-   Sidebar Submenu (CSS-only Hover)
-   ========================================================== */
-.has-submenu {
-  position: relative;
-}
-
-.has-submenu > a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 20px;
-  color: #cbd5e1;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s;
-  cursor: pointer;
-}
-
-.has-submenu > a:hover,
-.has-submenu.active > a {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-/* Arrow indicator */
-.has-submenu > a::after {
-  content: "▶"; /* Right arrow */
-  margin-left: auto;
-  font-size: 0.7rem;
-  transition: transform 0.3s ease;
-}
-
-/* Rotate arrow on hover */
-.has-submenu:hover > a::after {
-  transform: rotate(90deg);
-}
-
-/* Submenu container */
-/* Submenu */
-.has-submenu .submenu {
-  display: none;
-  position: fixed; /* instead of absolute */
-  left: calc(var(--sidebar-width) + 0px); /* position to right of sidebar */
-  top: 0; /* will adjust dynamically with JavaScript if needed */
-  background: #2c3a50;
-  min-width: 180px;
-  flex-direction: column;
-  border-radius: 6px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  z-index: 1100;
-}
-.has-submenu:hover > .submenu {
-  display: flex;
-  flex-direction: column;
-  position: fixed; /* float above sidebar */
-  left: var(--sidebar-width); /* right of sidebar */
-  /* top: calc(var(--topbar-height) + var(--menu-item-height) * index); */
-  top: calc(var(--topbar-height) + 52px);
-}
-
-
-/* Submenu items */
-.has-submenu .submenu a {
-  padding: 10px 15px;
-  font-size: 0.95rem;
-  color: #cbd5e1;
-  white-space: nowrap;
-  display: block;
-}
-
-.has-submenu .submenu a:hover,
-.has-submenu .submenu a.active {
-  background: var(--color-primary);
-  color: #fff;
-}
-
-/* Show submenu on hover */
-.has-submenu:hover > .submenu {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Responsive: open below on mobile */
-@media (max-width: 768px) {
-  .has-submenu .submenu {
-    left: 0;
-    top: 100%;
-  }
-  .has-submenu > a::after {
-    transform: rotate(0);
-  }
-}
-
 
 /* ==========================================================
    Main Layout

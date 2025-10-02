@@ -46,47 +46,59 @@
 
     <div class="container">
       <!-- Sidebar -->
-      <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
+       <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
         <div class="menu">
           <div class="menu-item">
-            <a href="user.html"
-              ><span class="material-icons">person</span> User</a
-            >
+            <a href="user.html">
+              <span class="material-icons" aria-hidden="true">person</span>
+              User
+            </a>
+          </div>
+
+          <!-- Inventory with Submenu -->
+          <div class="menu-item has-submenu">
+            <a href="javascript:void(0)" class="submenu-toggle"> 
+              <span class="material-icons" aria-hidden="true">inventory_2</span>
+              Inventory
+            </a>
+            <div class="submenu">
+              <a href="inventory.html">Inventory Items</a>
+              <a href="accessories.html">Accessories</a>
+              <a href="peripherals.html">Peripherals</a>
+            </div>
+          </div>
+
+          <div class="menu-item">
+            <a href="repair.html">
+              <span class="material-icons" aria-hidden="true">build</span>
+              Repair
+            </a>
           </div>
           <div class="menu-item">
-            <a href="inventory.html"
-              ><span class="material-icons">inventory_2</span> Inventory</a
-            >
+            <a href="upgrade.html">
+              <span class="material-icons" aria-hidden="true">upgrade</span>
+              Upgrade
+            </a>
           </div>
           <div class="menu-item">
-            <a href="accessories.html"
-              ><span class="material-icons">inventory_2</span> Accessories</a
-            >
+            <a href="issueitem.html">
+              <span class="material-icons" aria-hidden="true">
+                assignment_returned
+              </span>
+              Issue To
+            </a>
           </div>
           <div class="menu-item">
-            <a href="repair.html"
-              ><span class="material-icons">build</span> Repair</a
-            >
-          </div>
-          <div class="menu-item">
-            <a href="upgrade.html"
-              ><span class="material-icons">upgrade</span> Upgrade</a
-            >
-          </div>
-          <div class="menu-item">
-            <a href="issueitem.html"
-              ><span class="material-icons">assignment_returned</span> Issue
-              To</a
-            >
-          </div>
-          <div class="menu-item">
-            <a href="report.html"
-              ><span class="material-icons">bar_chart</span> Reports</a
-            >
+            <a href="report.html">
+              <span class="material-icons" aria-hidden="true">bar_chart</span>
+              Reports
+            </a>
           </div>
         </div>
+
         <div class="sidebar-footer">
-          <span class="material-icons">account_circle</span> Logged User
+          <span class="material-icons" aria-hidden="true">account_circle</span>
+          <span>Logged User</span>
         </div>
       </nav>
 
