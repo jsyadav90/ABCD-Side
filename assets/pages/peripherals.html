@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ABCD ERP - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/media.css" />
+
+    <!-- Material Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+  </head>
+  <body>
+    <!--! Top Bar -->
+
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="logo"><a href="../../index.html">ABCD</a></div>
+        <button id="hamburger" class="hamburger-btn material-icons hamburger">
+          menu
+        </button>
+      </div>
+
+      <div class="topbar-right">
+        <div class="search-container" id="searchBox" role="search">
+          <input
+            type="text"
+            placeholder="Search the application..."
+            aria-label="Search the application"
+          />
+          <div class="search-icon-container">
+            <button
+              type="button"
+              id="searchToggle"
+              class="material-icons search-icon"
+            >
+              search
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!--! Sidebar -->
+      <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
+        <div class="menu">
+          <div class="menu-item">
+            <a href="user.html">
+              <span class="material-icons" aria-hidden="true">person</span>
+              User
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="inventory.html">
+              <span class="material-icons" aria-hidden="true">inventory_2</span>
+              Inventory
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="accessories.html">
+              <span class="material-icons" aria-hidden="true">inventory_2</span>
+              Accessories
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="repair.html">
+              <span class="material-icons" aria-hidden="true">build</span>
+              Repair
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="upgrade.html">
+              <span class="material-icons" aria-hidden="true">upgrade</span>
+              Upgrade
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="issueitem.html">
+              <span class="material-icons" aria-hidden="true"
+                >assignment_returned</span
+              >
+              Issue To
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="report.html">
+              <span class="material-icons" aria-hidden="true">bar_chart</span>
+              Reports
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <span class="material-icons" aria-hidden="true">account_circle</span>
+          <span>Logged User</span>
+        </div>
+      </nav>
+
+      <!--! Main Content -->
+      <main class="main" id="main-content" tabindex="0">
+        <main class="main-container" id="main-content">
+          <h1>Peripherals & Accessories</h1>
+          <button class="add-btn" id="openModal">+ Add Peripheral</button>
+          <div class="peripherals-container">
+            <!-- Example cards -->
+            <div class="peripheral-card" onclick="openDetails('webcam')">
+              <img src="../assets/images/webcam.png" alt="Webcam" />
+              <h3>Webcam</h3>
+              <p>Quantity: 12</p>
+              <p>Status: Available</p>
+            </div>
+            <div class="peripheral-card" onclick="openDetails('headphone')">
+              <img src="../assets/images/headphone.png" alt="Headphone" />
+              <h3>Headphone</h3>
+              <p>Quantity: 20</p>
+              <p>Status: In Use</p>
+            </div>
+          </div>
+        </main>
+        <!-- Add Peripheral Popup -->
+        <div class="modal" id="addModal">
+          <div class="modal-content">
+            <h2>Add Peripheral</h2>
+            <form id="addPeripheralForm">
+              <label>Item Type</label>
+              <select name="type" required>
+                <option value="">Select</option>
+                <option value="RAM">RAM</option>
+                <option value="SSD">SSD</option>
+                <option value="GPU">GPU</option>
+                <option value="Keyboard">Keyboard</option>
+                <option value="Mouse">Mouse</option>
+                <option value="Webcam">Webcam</option>
+                <option value="Headphone">Headphone</option>
+              </select>
+              <label>Serial No.</label>
+              <input type="text" name="serial" required />
+              <label>Specification</label>
+              <input
+                type="text"
+                name="spec"
+                placeholder="e.g. 8GB DDR4 2666MHz"
+              />
+              <label>Status</label>
+              <select name="status">
+                <option value="Available">Available</option>
+                <option value="In Use">In Use</option>
+                <option value="Retired">Retired</option>
+              </select>
+              <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="closeModal">
+                  Cancel
+                </button>
+                <button type="submit" class="btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <script>
+          // Modal logic const modal = document.getElementById("addModal"); document.getElementById("openModal").addEventListener("click", () => { modal.style.display = "flex"; }); document.getElementById("closeModal").addEventListener("click", () => { modal.style.display = "none"; }); window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; }; // Form logic document.getElementById("addPeripheralForm").addEventListener("submit", (e) => { e.preventDefault(); alert("Peripheral Added (hook with backend to save)"); modal.style.display = "none"; }); // Open detail page function openDetails(type) { window.location.href = `peripheral-details.html?item=${type}`; }
+        </script>
+      </main>
+    </div>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

@@ -118,43 +118,156 @@
           <p><strong>Available:</strong> 18</p>
         </div>
 
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Asset ID</th>
-              <th>Serial No</th>
-              <th>Make/Model</th>
-              <th>Status</th>
-              <th>Assigned To</th>
-              <th>Action</th>
-              <th>History</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>ACC001-001</td>
-              <td>SN10001</td>
-              <td>Logitech H111</td>
-              <td>Available</td>
-              <td>-</td>
-              <td>
-                <button class="btn btn-sm btn-success">Issue</button>
-                <button class="btn btn-sm btn-danger">Delete</button>
-              </td>
-              <td>
-                <button
-                  class="btn btn-sm btn-info"
-                  onclick="openHistory('ACC001-001')"
-                >
-                  View History
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-container">
+          <table class="table accessories-table">
+            <thead>
+              <tr>
+                <th>Accessory ID</th>
+                 <th>Status</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Serial No</th>
+                <th>Purchase Vendor</th>
+                <th>Purchase Date</th>
+                <th>Warranty (Months)</th>
+               
+                <th>Issue To</th>
+                <th>Issue date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Example Row -->
+              <tr>
+                <td>ACC001</td>
+                <td>available</td>
+                <td>Logitech</td>
+                <td>-</td>
+                <td>-</td>
+                <td>ABC</td>
+                <td>2024-03-15</td>
+                <td>12</td>
+                
+                <td>-</td>
+                <td>-</td>
+                <td>
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="#">Issue</a></li>
+                      <li><a href="#">Return</a></li>
+                      <li><a href="#">Disable</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+
+              <tr>
+                <td>ACC002</td>
+                <td>issued</td>
+                <td>HP</td>
+                <td>-</td>
+                <td>-</td>
+                <td>XYZ</td>
+                <td>2024-01-20</td>
+                <td>24</td>
+               
+                <td>Mr. Ashish</td>
+                <td>26.12.2024</td>
+                <td>
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="#">Issue</a></li>
+                      <li><a href="#">Return</a></li>
+                      <li><a href="#">Disable</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </main>
+      <!-- Add Item Modal -->
+<div id="addItemModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeAddItem">&times;</span>
+    <h2>Add New Item</h2>
+    <form id="addItemForm">
+      
+      <div class="form-group">
+        <label for="brand">Brand</label>
+        <input type="text" id="brand" name="brand" />
+      </div>
+
+      <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" id="model" name="model" />
+      </div>
+
+      <div class="form-group">
+        <label for="serialNo">Serial No</label>
+        <input type="text" id="serialNo" name="serialNo" />
+      </div>
+
+      <div class="form-group">
+        <label for="vendor">Purchase Vendor</label>
+        <input type="text" id="vendor" name="vendor" />
+      </div>
+
+      <div class="form-group">
+        <label for="purchaseDate">Purchase Date</label>
+        <input type="date" id="purchaseDate" name="purchaseDate" />
+      </div>
+
+      <div class="form-group">
+        <label for="warranty">Warranty (Months)</label>
+        <input type="date" id="warranty" name="warranty" />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-secondary" id="cancelAddItem">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+
     </div>
 
     <script src="../js/script.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.querySelector(".page-header .btn-primary"); // "Add New Item" button
+  const modal = document.getElementById("addItemModal");
+  const closeBtn = document.getElementById("closeAddItem");
+  const cancelBtn = document.getElementById("cancelAddItem");
+  const form = document.getElementById("addItemForm");
+
+  // Open modal
+  addBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  // Close modal
+  closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
+  cancelBtn.addEventListener("click", () => { modal.style.display = "none"; });
+
+  // Click outside to close
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  // Form submit (frontend-only)
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("New item added (frontend only)");
+    form.reset();
+    modal.style.display = "none";
+  });
+});
+</script>
+
   </body>
 </html>

@@ -178,7 +178,7 @@
                 <td>10.04.2025</td>
                 <td
                   class="remarks"
-                  data-full="Old HDD faulty, replaced with SSD for faster performance"
+                  data-full="Old HDD faulty, replaced with SSD for faster performance Old HDD faulty, replaced with SSD for faster performance"
                 >
                   Old HDD faulty, replaced with SSD...
                 </td>
@@ -212,6 +212,41 @@
         });
       });
 
+
+
+
+
+// for td tooltip data show 
+
+      document.addEventListener("DOMContentLoaded", () => {
+  const tooltip = document.createElement("div");
+  tooltip.className = "tooltip-hover";
+  document.body.appendChild(tooltip);
+
+  document.querySelectorAll("td.remarks").forEach(td => {
+    td.addEventListener("mouseenter", (e) => {
+      tooltip.innerText = td.getAttribute("data-full");
+      tooltip.style.display = "block";
+
+      const rect = td.getBoundingClientRect();
+      const tooltipHeight = tooltip.offsetHeight;
+      const spaceBelow = window.innerHeight - rect.bottom;
+
+      // If not enough space below, show above
+      if (spaceBelow < tooltipHeight) {
+        tooltip.style.top = rect.top + window.scrollY - tooltipHeight - 2 + "px"; // above cell
+      } else {
+        tooltip.style.top = rect.bottom + window.scrollY + 2 + "px"; // below cell
+      }
+
+      tooltip.style.left = rect.left + window.scrollX + "px";
+    });
+
+    td.addEventListener("mouseleave", () => {
+      tooltip.style.display = "none";
+    });
+  });
+});
 
 
     </script>

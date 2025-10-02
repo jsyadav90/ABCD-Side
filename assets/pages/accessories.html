@@ -16,12 +16,11 @@
   <body>
     <!--! Top Bar -->
 
-
     <header class="topbar">
       <div class="topbar-left">
         <div class="logo"><a href="../../index.html">ABCD</a></div>
         <button id="hamburger" class="hamburger-btn material-icons hamburger">
-        menu
+          menu
         </button>
       </div>
 
@@ -61,7 +60,7 @@
               Inventory
             </a>
           </div>
-           <div class="menu-item">
+          <div class="menu-item">
             <a href="accessories.html">
               <span class="material-icons" aria-hidden="true">inventory_2</span>
               Accessories
@@ -102,37 +101,157 @@
       </nav>
 
       <!--! Main Content -->
-    
-<!-- Main Container -->
-<main class="main" id="main-content">
- <div class="page-header">
-    <h2>Accessories Management</h2>
-    <button class="btn btn-primary" id="addAccessoryBtn">+ Add Accessory</button>
-  </div>
 
-  <div class="cards-container">
-    <!-- Example Card -->
-    <div class="accessory-card" data-id="ACC001">
-      <img src="../assets/images/headset.png" alt="Headset" class="card-img">
-      <h3>Headset</h3>
-      <p>Quantity: 18 / 20</p>
-      <button class="btn btn-sm btn-primary view-details" onclick="location.href='accessories-details.html'">View Details</button>
-    </div>
+      <!-- Main Container -->
+      <main class="main" id="main-content">
+        <div class="page-header">
+          <h2>Accessories Management</h2>
+          <button class="btn btn-primary" id="addAccessoryBtn">
+            + Add Accessory
+          </button>
+        </div>
 
-    <div class="accessory-card" data-id="ACC002">
-      <img src="../assets/images/webcam.png" alt="Webcam" class="card-img">
-      <h3>Webcam</h3>
-      <p>Quantity: 10 / 12</p>
-      <button class="btn btn-sm btn-primary view-details">View Details</button>
-    </div>
+        <div class="cards-container">
+          <!-- Example Card -->
+          <div class="accessory-card" data-id="ACC001" onclick="location.href='accessories-details.html'">
+            <img
+              src="../assets/images/headset.png"
+              alt="Headset"
+              class="card-img"
+            />
+            <h3>Headset</h3>
+            <p>Quantity: 18 / 20</p>
+            <button
+              class="btn btn-sm btn-primary view-details"
+            
+            >
+              View Details
+            </button>
+          </div>
 
-    <!-- Add more cards dynamically from backend -->
-  </div>
-</main>
+          <div class="accessory-card" data-id="ACC002"   onclick="location.href='accessories-details.html'">
+            <img
+              src="../assets/images/webcam.png"
+              alt="Webcam"
+              class="card-img"
+            />
+            <h3>Webcam</h3>
+            <p>Quantity: 10 / 12</p>
+            <button class="btn btn-sm btn-primary view-details">
+              View Details
+            </button>
+          </div>
 
+          <!-- Add more cards dynamically from backend -->
+        </div>
+      </main>
 
+      <!-- Add Accessory Modal -->
+      <div id="addAccessoryModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeAccessoryModal">&times;</span>
+          <h2>Add New Accessory</h2>
+          <form id="addAccessoryForm">
+            <div class="form-group">
+              <label for="accessoryName">Accessory Name</label>
+              <input
+                type="text"
+                id="accessoryName"
+                name="accessoryName"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="accessoryImage">Accessory Image</label>
+              <input
+                type="file"
+                id="accessoryImage"
+                name="accessoryImage"
+                accept="image/*"
+              />
+              <div class="image-preview">
+                <img
+                  id="previewImg"
+                  src=""
+                  alt="Preview"
+                  style="display: none; max-width: 100px; margin-top: 10px"
+                />
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                id="cancelAccessoryBtn"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
 
     <script src="../js/script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const addAccessoryBtn = document.getElementById("addAccessoryBtn");
+        const modal = document.getElementById("addAccessoryModal");
+        const closeBtn = document.getElementById("closeAccessoryModal");
+        const cancelBtn = document.getElementById("cancelAccessoryBtn");
+        const accessoryForm = document.getElementById("addAccessoryForm");
+        const accessoryImage = document.getElementById("accessoryImage");
+        const previewImg = document.getElementById("previewImg");
+
+        // Open modal
+        addAccessoryBtn.addEventListener("click", () => {
+          modal.style.display = "block";
+        });
+
+        // Close modal
+        closeBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        cancelBtn.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        // Close if click outside content
+        window.addEventListener("click", (e) => {
+          if (e.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+
+        // Preview Image
+        accessoryImage.addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              previewImg.src = reader.result;
+              previewImg.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+          } else {
+            previewImg.style.display = "none";
+          }
+        });
+
+        // Form submit
+        accessoryForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = document.getElementById("accessoryName").value;
+          alert(`Accessory Added: ${name}`);
+          modal.style.display = "none";
+          accessoryForm.reset();
+          previewImg.style.display = "none";
+        });
+      });
+    </script>
   </body>
 </html>

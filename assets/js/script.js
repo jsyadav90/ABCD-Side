@@ -195,3 +195,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Activate the initial tab
   if (initialTab) initialTab.click();
 });
+
+
+
+
+//! ------------------ This is table action script ------------------
+document.addEventListener("DOMContentLoaded", () => {
+  // Handle Action Dropdown Toggle
+  document.querySelectorAll(".action-icon").forEach(icon => {
+    icon.addEventListener("click", (e) => {
+      const dropdown = e.target.nextElementSibling;
+      
+      // Close all other open dropdowns
+      document.querySelectorAll(".action-menu .dropdown").forEach(menu => {
+        if (menu !== dropdown) menu.style.display = "none";
+      });
+
+      // Toggle current dropdown
+      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // Close dropdown if clicking outside
+  window.addEventListener("click", (e) => {
+    if (!e.target.closest(".action-menu")) {
+      document.querySelectorAll(".action-menu .dropdown").forEach(menu => {
+        menu.style.display = "none";
+      });
+    }
+  });
+});
+
