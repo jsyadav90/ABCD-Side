@@ -10,106 +10,6 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <style>
-    /* Form Wrapper */
-.form-wrapper {
-  background: #fff;
-  padding: 2rem 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-
-/* Form Title */
-.form-wrapper h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
-  color: #333;
-}
-
-/* Two-column grid for form fields */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 2rem;
-}
-
-/* Individual form group */
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Labels */
-.form-group label {
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-  color: #555;
-}
-
-/* Inputs and selects */
-.form-group input,
-.form-group select {
-  padding: 0.65rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  transition: border 0.2s;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Full-width fields (like select type) */
-.full-width {
-  grid-column: span 2;
-}
-
-/* Form buttons */
-.form-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1rem;
-  margin-top: 2rem;
-  grid-column: span 2;
-}
-
-.btn {
-  padding: 0.7rem 1.3rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: #fff;
-}
-
-/* Hide unused fields */
-.hide {
-  display: none;
-}
-
-/* Responsive for small screens: single column */
-@media (max-width: 768px) {
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-    </style>
   </head>
   <body>
     <!-- Topbar -->
@@ -127,22 +27,35 @@
       <nav class="sidebar show" id="sidebar">
         <div class="menu">
           <div class="menu-item">
-            <a href="user.html"><span class="material-icons">person</span>User</a>
+            <a href="user.html"
+              ><span class="material-icons">person</span>User</a
+            >
           </div>
           <div class="menu-item">
-            <a href="inventory.html"><span class="material-icons">inventory_2</span>Inventory</a>
+            <a href="inventory.html"
+              ><span class="material-icons">inventory_2</span>Inventory</a
+            >
           </div>
           <div class="menu-item">
-            <a href="repair.html"><span class="material-icons">build</span>Repair</a>
+            <a href="repair.html"
+              ><span class="material-icons">build</span>Repair</a
+            >
           </div>
           <div class="menu-item">
-            <a href="upgrade.html"><span class="material-icons">upgrade</span>Upgrade</a>
+            <a href="upgrade.html"
+              ><span class="material-icons">upgrade</span>Upgrade</a
+            >
           </div>
           <div class="menu-item">
-            <a href="issueitem.html"><span class="material-icons">assignment_returned</span>Issue To</a>
+            <a href="issueitem.html"
+              ><span class="material-icons">assignment_returned</span>Issue
+              To</a
+            >
           </div>
           <div class="menu-item">
-            <a href="report.html"><span class="material-icons">bar_chart</span>Reports</a>
+            <a href="report.html"
+              ><span class="material-icons">bar_chart</span>Reports</a
+            >
           </div>
         </div>
       </nav>
@@ -169,78 +82,197 @@
             </div>
 
             <!-- Desktop Fields -->
-            <div class="field-group hide" data-type="desktop">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="desktopAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="desktopBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="desktopModel" /></div>
-              <div class="form-group"><label>CPU</label><input type="text" name="desktopCpu" /></div>
-              <div class="form-group"><label>Monitor</label><input type="text" name="desktopMonitor" /></div>
-              <div class="form-group"><label>Mouse</label><input type="text" name="desktopMouse" /></div>
-              <div class="form-group"><label>Keyboard</label><input type="text" name="desktopKeyboard" /></div>
+            <div class="field-group full-width hide" data-type="desktop">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Asset ID</label
+                  ><input type="text" name="desktopAssetId" />
+                </div>
+                <div class="form-group">
+                  <label>Brand</label><input type="text" name="desktopBrand" />
+                </div>
+                <div class="form-group">
+                  <label>Model</label><input type="text" name="desktopModel" />
+                </div>
+                <div class="form-group">
+                  <label>CPU</label><input type="text" name="desktopCpu" />
+                </div>
+                <div class="form-group">
+                  <label>Monitor</label
+                  ><input type="text" name="desktopMonitor" />
+                </div>
+                <div class="form-group">
+                  <label>Mouse</label><input type="text" name="desktopMouse" />
+                </div>
+                <div class="form-group">
+                  <label>Keyboard</label
+                  ><input type="text" name="desktopKeyboard" />
+                </div>
+              </div>
             </div>
 
             <!-- CPU Fields -->
-            <div class="field-group hide" data-type="cpu">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="cpuAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="cpuBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="cpuModel" /></div>
-              <div class="form-group"><label>Processor</label><input type="text" name="cpuProcessor" /></div>
-              <div class="form-group"><label>Generation</label><input type="text" name="cpuGeneration" /></div>
-              <div class="form-group"><label>RAM</label><input type="text" name="cpuRam" /></div>
-              <div class="form-group"><label>Storage Type</label><input type="text" name="cpuStorageType" /></div>
-              <div class="form-group"><label>Storage Capacity</label><input type="text" name="cpuStorageCapacity" /></div>
-              <div class="form-group"><label>Graphics</label><input type="text" name="cpuGraphics" /></div>
+            <div class="field-group full-width hide" data-type="cpu">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Asset ID</label><input type="text" name="cpuAssetId" />
+                </div>
+                <div class="form-group">
+                  <label>Brand</label><input type="text" name="cpuBrand" />
+                </div>
+                <div class="form-group">
+                  <label>Model</label><input type="text" name="cpuModel" />
+                </div>
+                <div class="form-group">
+                  <label>Processor</label
+                  ><input type="text" name="cpuProcessor" />
+                </div>
+                <div class="form-group">
+                  <label>Generation</label
+                  ><input type="text" name="cpuGeneration" />
+                </div>
+                <div class="form-group">
+                  <label>RAM</label><input type="text" name="cpuRam" />
+                </div>
+                <div class="form-group">
+                  <label>Storage Type</label
+                  ><input type="text" name="cpuStorageType" />
+                </div>
+                <div class="form-group">
+                  <label>Storage Capacity</label
+                  ><input type="text" name="cpuStorageCapacity" />
+                </div>
+                <div class="form-group">
+                  <label>Graphics</label
+                  ><input type="text" name="cpuGraphics" />
+                </div>
+              </div>
             </div>
 
             <!-- Monitor Fields -->
-            <div class="field-group hide" data-type="monitor">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="monitorAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="monitorBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="monitorModel" /></div>
-              <div class="form-group"><label>Screen Size</label><input type="text" name="monitorSize" /></div>
-              <div class="form-group"><label>Resolution</label><input type="text" name="monitorResolution" /></div>
+            <div class="field-group full-width hide" data-type="monitor">
+              <div class="form-grid">
+              <div class="form-group">
+                <label>Asset ID</label
+                ><input type="text" name="monitorAssetId" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label><input type="text" name="monitorBrand" />
+              </div>
+              <div class="form-group">
+                <label>Model</label><input type="text" name="monitorModel" />
+              </div>
+              <div class="form-group">
+                <label>Screen Size</label
+                ><input type="text" name="monitorSize" />
+              </div>
+              <div class="form-group">
+                <label>Resolution</label
+                ><input type="text" name="monitorResolution" />
+              </div>
+              </div>
             </div>
 
             <!-- Laptop Fields -->
-            <div class="field-group hide" data-type="laptop">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="laptopAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="laptopBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="laptopModel" /></div>
-              <div class="form-group"><label>Processor</label><input type="text" name="laptopProcessor" /></div>
-              <div class="form-group"><label>RAM</label><input type="text" name="laptopRam" /></div>
-              <div class="form-group"><label>Storage</label><input type="text" name="laptopStorage" /></div>
+            <div class="field-group full-width hide" data-type="laptop">
+              <div class="form-grid">
+              <div class="form-group">
+                <label>Asset ID</label
+                ><input type="text" name="laptopAssetId" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label><input type="text" name="laptopBrand" />
+              </div>
+              <div class="form-group">
+                <label>Model</label><input type="text" name="laptopModel" />
+              </div>
+              <div class="form-group">
+                <label>Processor</label
+                ><input type="text" name="laptopProcessor" />
+              </div>
+              <div class="form-group">
+                <label>RAM</label><input type="text" name="laptopRam" />
+              </div>
+              <div class="form-group">
+                <label>Storage</label><input type="text" name="laptopStorage" />
+              </div>
+              </div>
             </div>
 
             <!-- Printer Fields -->
-            <div class="field-group hide" data-type="printer">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="printerAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="printerBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="printerModel" /></div>
-              <div class="form-group"><label>Type</label><input type="text" name="printerType" /></div>
+            <div class="field-group full-width hide" data-type="printer">
+              <div class="form-grid">
+              <div class="form-group">
+                <label>Asset ID</label
+                ><input type="text" name="printerAssetId" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label><input type="text" name="printerBrand" />
+              </div>
+              <div class="form-group">
+                <label>Model</label><input type="text" name="printerModel" />
+              </div>
+              <div class="form-group">
+                <label>Type</label><input type="text" name="printerType" />
+              </div>
+              </div>
             </div>
 
             <!-- Projector Fields -->
-            <div class="field-group hide" data-type="projector">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="projectorAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="projectorBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="projectorModel" /></div>
-              <div class="form-group"><label>Resolution</label><input type="text" name="projectorResolution" /></div>
+            <div class="field-group full-width hide" data-type="projector">
+              <div class="form-grid">
+              <div class="form-group">
+                <label>Asset ID</label
+                ><input type="text" name="projectorAssetId" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label><input type="text" name="projectorBrand" />
+              </div>
+              <div class="form-group">
+                <label>Model</label><input type="text" name="projectorModel" />
+              </div>
+              <div class="form-group">
+                <label>Resolution</label
+                ><input type="text" name="projectorResolution" />
+              </div>
+              </div>
             </div>
 
             <!-- Network Switch Fields -->
-            <div class="field-group hide" data-type="net-switch">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="switchAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="switchBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="switchModel" /></div>
-              <div class="form-group"><label>Ports</label><input type="text" name="switchPorts" /></div>
+            <div class="field-group full-width hide" data-type="net-switch">
+              <div class="form-grid">
+              <div class="form-group">
+                <label>Asset ID</label
+                ><input type="text" name="switchAssetId" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label><input type="text" name="switchBrand" />
+              </div>
+              <div class="form-group">
+                <label>Model</label><input type="text" name="switchModel" />
+              </div>
+              <div class="form-group">
+                <label>Ports</label><input type="text" name="switchPorts" />
+              </div>
+              </div>
             </div>
 
             <!-- UPS Fields -->
-            <div class="field-group hide" data-type="ups">
-              <div class="form-group"><label>Asset ID</label><input type="text" name="upsAssetId" /></div>
-              <div class="form-group"><label>Brand</label><input type="text" name="upsBrand" /></div>
-              <div class="form-group"><label>Model</label><input type="text" name="upsModel" /></div>
-              <div class="form-group"><label>Capacity</label><input type="text" name="upsCapacity" /></div>
+            <div class="field-group full-width hide" data-type="ups">
+              <div class="form-grid">
+              <div class="form-group">
+                <label>Asset ID</label><input type="text" name="upsAssetId" />
+              </div>
+              <div class="form-group">
+                <label>Brand</label><input type="text" name="upsBrand" />
+              </div>
+              <div class="form-group">
+                <label>Model</label><input type="text" name="upsModel" />
+              </div>
+              <div class="form-group">
+                <label>Capacity</label><input type="text" name="upsCapacity" />
+              </div>
+              </div>
             </div>
 
             <!-- Form Actions -->
