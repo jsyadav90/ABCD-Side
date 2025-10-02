@@ -83,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  tabButtons.forEach((btn) => btn.addEventListener("click", () => activateTab(btn)));
+  tabButtons.forEach((btn) =>
+    btn.addEventListener("click", () => activateTab(btn))
+  );
   const savedTab = localStorage.getItem("activeTab");
   if (savedTab) {
     const defaultTab = document.querySelector(`[data-target="${savedTab}"]`);
@@ -93,11 +95,15 @@ document.addEventListener("DOMContentLoaded", () => {
   //! ------------------ TABLE LOGIC ------------------
   function setupCheckboxLogic(table) {
     const theadCheckbox = table.querySelector("thead input[type='checkbox']");
-    const tbodyCheckboxes = table.querySelectorAll("tbody input[type='checkbox']");
+    const tbodyCheckboxes = table.querySelectorAll(
+      "tbody input[type='checkbox']"
+    );
     if (!theadCheckbox) return;
 
     theadCheckbox.addEventListener("change", () => {
-      const visibleRows = table.querySelectorAll("tbody tr:not([style*='display: none'])");
+      const visibleRows = table.querySelectorAll(
+        "tbody tr:not([style*='display: none'])"
+      );
       visibleRows.forEach((row) => {
         const cb = row.querySelector("input[type='checkbox']");
         if (cb) cb.checked = theadCheckbox.checked;
@@ -105,13 +111,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     tbodyCheckboxes.forEach((cb) =>
-      cb.addEventListener("change", () => updateTheadCheckbox(table, theadCheckbox))
+      cb.addEventListener("change", () =>
+        updateTheadCheckbox(table, theadCheckbox)
+      )
     );
   }
 
   function updateTheadCheckbox(table, theadCheckbox) {
-    const visibleRows = table.querySelectorAll("tbody tr:not([style*='display: none'])");
-    const visibleCheckboxes = [...visibleRows].map((row) => row.querySelector("input[type='checkbox']"));
+    const visibleRows = table.querySelectorAll(
+      "tbody tr:not([style*='display: none'])"
+    );
+    const visibleCheckboxes = [...visibleRows].map((row) =>
+      row.querySelector("input[type='checkbox']")
+    );
     const allChecked = visibleCheckboxes.every((cb) => cb && cb.checked);
     const someChecked = visibleCheckboxes.some((cb) => cb && cb.checked);
     theadCheckbox.checked = allChecked;
@@ -126,8 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const allRows = Array.from(table.querySelectorAll("tbody tr"));
     // Store original HTML for each td
-    const originalHTML = allRows.map(row =>
-      Array.from(row.querySelectorAll("td")).map(td => td.innerHTML)
+    const originalHTML = allRows.map((row) =>
+      Array.from(row.querySelectorAll("td")).map((td) => td.innerHTML)
     );
 
     searchInput.addEventListener("input", () => {
@@ -143,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
             matchFound = true;
             // Highlight search term
             const regex = new RegExp(`(${searchTerm})`, "gi");
-            td.innerHTML = td.innerHTML.replace(regex, '<mark>$1</mark>');
+            td.innerHTML = td.innerHTML.replace(regex, "<mark>$1</mark>");
           }
         });
         row.style.display = searchTerm ? (matchFound ? "" : "none") : "";
@@ -153,7 +165,10 @@ document.addEventListener("DOMContentLoaded", () => {
       updateTheadCheckbox(table, theadCheckbox);
     });
 
-    searchInput.addEventListener("keydown", (e) => e.key === "Enter" && e.preventDefault());
+    searchInput.addEventListener(
+      "keydown",
+      (e) => e.key === "Enter" && e.preventDefault()
+    );
   }
 
   //! ------------------ INITIALIZE TABLES ------------------
@@ -163,4 +178,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setupCheckboxLogic(table);
     setupSearchLogic(table, actionDiv);
   });
+  let initialTab;
+
+  if (savedTab) {
+    initialTab = document.querySelector(`[data-target="${savedTab}"]`);
+  } else if (tabButtons.length) {
+    initialTab = tabButtons[0];
+  }
+
+  // Hide action buttons if initial tab is summary
+  if (initialTab && actionDiv) {
+    const targetId = initialTab.getAttribute("data-target");
+    actionDiv.style.display = targetId === "summary" ? "none" : "flex";
+  }
+
+  // Activate the initial tab
+  if (initialTab) initialTab.click();
 });

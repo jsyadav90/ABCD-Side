@@ -49,6 +49,31 @@ a {
   display: none !important;
 }
 
+/* Back link styling */
+a.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: #333;           /* Text color */
+  background-color: #f0f0f0; /* Light gray background */
+  padding: 6px 12px;     /* Spacing */
+  border-radius: 6px;    /* Rounded corners */
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.3s, color 0.3s;
+}
+
+a.back-link:hover {
+  background-color: #1e90ff; /* Hover background */
+  color: #fff;               /* Hover text color */
+}
+
+a.back-link::before {
+  content: "←"; /* Arrow before text */
+  margin-right: 6px;
+  font-weight: bold;
+}
+
+
 /* ==========================================================
    Topbar
    ========================================================== */
