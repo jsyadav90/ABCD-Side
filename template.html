@@ -15,93 +15,97 @@
   </head>
   <body>
     <!--! Top Bar -->
+
+
     <header class="topbar">
-      <div class="topbar-logo"><a href="../../index.html">ABCD</a></div>
-      <div
-        class="hamburger"
-        id="hamburger"
-        title="Toggle sidebar"
-        aria-label="Toggle sidebar"
-        role="button"
-        tabindex="0"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="topbar-left">
+        <div class="logo"><a href="../../index.html">ABCD</a></div>
+        <button id="hamburger" class="hamburger-btn material-icons hamburger">
+        menu
+        </button>
       </div>
 
-      <!--! search bar  -->
-
-      <div class="search-container" role="search">
-        <input
-          type="text"
-          placeholder="Search the application..."
-          aria-label="Search the application"
-        />
-        <div class="search-icon-container">
-          <button type="submit" class="material-icons search-icon">search</button>
+      <div class="topbar-right">
+        <div class="search-container" id="searchBox" role="search">
+          <input
+            type="text"
+            placeholder="Search the application..."
+            aria-label="Search the application"
+          />
+          <div class="search-icon-container">
+            <button
+              type="button"
+              id="searchToggle"
+              class="material-icons search-icon"
+            >
+              search
+            </button>
+          </div>
         </div>
       </div>
-
-      
-
-      <!--! header start  -->
     </header>
 
     <div class="container">
       <!--! Sidebar -->
       <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
         <div class="menu">
-          <div class="menu-item" tabindex="0">
-            <span class="material-icons" aria-hidden="true">person</span><a href="user.html">User</a>
+          <div class="menu-item">
+            <a href="user.html">
+              <span class="material-icons" aria-hidden="true">person</span>
+              User
+            </a>
           </div>
-          <div class="menu-item" tabindex="0">
-            <span class="material-icons" aria-hidden="true">inventory_2</span
-            ><a href="inventory.html">Inventory</a>
+          <div class="menu-item">
+            <a href="inventory.html">
+              <span class="material-icons" aria-hidden="true">inventory_2</span>
+              Inventory
+            </a>
           </div>
-          <div class="menu-item" tabindex="0">
-            <span class="material-icons" aria-hidden="true">build</span> <a href="repair.html">Repair</a>
+          <div class="menu-item">
+            <a href="accessories.html">
+              <span class="material-icons" aria-hidden="true">inventory_2</span>
+              Accessories
+            </a>
           </div>
-          <div class="menu-item" tabindex="0">
-            <span class="material-icons" aria-hidden="true">upgrade</span
-            > <a href="upgrade.html">Upgrade</a>
+          <div class="menu-item">
+            <a href="repair.html">
+              <span class="material-icons" aria-hidden="true">build</span>
+              Repair
+            </a>
           </div>
-          <div class="menu-item" tabindex="0">
-            <span class="material-icons" aria-hidden="true"
-              >assignment_returned</span
-            > <a href="issueitem.html">Issue To</a>
+          <div class="menu-item">
+            <a href="upgrade.html">
+              <span class="material-icons" aria-hidden="true">upgrade</span>
+              Upgrade
+            </a>
           </div>
-          <div class="menu-item" tabindex="0">
-            <span class="material-icons" aria-hidden="true">bar_chart</span
-            > <a href="report.html">Reports</a>
+          <div class="menu-item">
+            <a href="issueitem.html">
+              <span class="material-icons" aria-hidden="true"
+                >assignment_returned</span
+              >
+              Issue To
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="report.html">
+              <span class="material-icons" aria-hidden="true">bar_chart</span>
+              Reports
+            </a>
           </div>
         </div>
 
-        <div class="sidebar-footer" tabindex="0">
+        <div class="sidebar-footer">
           <span class="material-icons" aria-hidden="true">account_circle</span>
           <span>Logged User</span>
         </div>
       </nav>
 
-      <!-- Main Content -->
+      <!--! Main Content -->
       <main class="main" id="main-content" tabindex="0">
+       
+
         
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </main>
     </div>
 

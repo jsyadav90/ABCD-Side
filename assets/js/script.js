@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Desktop: always show sidebar, Mobile: restore state
   if (window.innerWidth > 1200) {
     setSidebarState(true);
   } else {
@@ -49,17 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
     setSidebarState(savedState === "open");
   }
 
-  // Hamburger toggle
   hamburger.addEventListener("click", () => {
     setSidebarState(sidebar.classList.contains("hide"));
   });
 
-  // Hide sidebar on resize
   window.addEventListener("resize", () => {
     if (window.innerWidth > 1200) setSidebarState(true);
   });
 
-  // Hide sidebar on link click (mobile)
   sidebarLinks.forEach((link) => {
     link.addEventListener("click", () => {
       if (window.innerWidth <= 1200) setSidebarState(false);
@@ -94,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (defaultTab) defaultTab.click();
   } else if (tabButtons.length) tabButtons[0].click();
 
-  //! ------------------ TABLE LOGIC (search & checkbox) ------------------
+  //! ------------------ TABLE LOGIC ------------------
   function setupCheckboxLogic(table) {
     const theadCheckbox = table.querySelector("thead input[type='checkbox']");
     const tbodyCheckboxes = table.querySelectorAll("tbody input[type='checkbox']");
@@ -122,26 +118,37 @@ document.addEventListener("DOMContentLoaded", () => {
     theadCheckbox.indeterminate = !allChecked && someChecked;
   }
 
+  //! ------------------ SEARCH LOGIC ------------------
   function setupSearchLogic(table, actionDiv) {
     if (!actionDiv) return;
     const searchInput = actionDiv.querySelector("input[type='text']");
     if (!searchInput) return;
 
+    const allRows = Array.from(table.querySelectorAll("tbody tr"));
+    // Store original HTML for each td
+    const originalHTML = allRows.map(row =>
+      Array.from(row.querySelectorAll("td")).map(td => td.innerHTML)
+    );
+
     searchInput.addEventListener("input", () => {
-      const searchTerm = searchInput.value.toLowerCase();
-      table.querySelectorAll("tbody tr").forEach((row) => {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+
+      allRows.forEach((row, rowIndex) => {
         let matchFound = false;
-        row.querySelectorAll("td").forEach((td) => {
-          if (td.querySelector("input, button")) return;
-          const text = td.textContent.toLowerCase();
-          matchFound = matchFound || (searchTerm && text.includes(searchTerm));
-          td.innerHTML = td.textContent.replace(
-            new RegExp(`(${searchTerm})`, "gi"),
-            "<mark>$1</mark>"
-          );
+        row.querySelectorAll("td").forEach((td, colIndex) => {
+          // Reset td to original HTML first
+          td.innerHTML = originalHTML[rowIndex][colIndex];
+
+          if (searchTerm && td.textContent.toLowerCase().includes(searchTerm)) {
+            matchFound = true;
+            // Highlight search term
+            const regex = new RegExp(`(${searchTerm})`, "gi");
+            td.innerHTML = td.innerHTML.replace(regex, '<mark>$1</mark>');
+          }
         });
-        row.style.display = matchFound || !searchTerm ? "" : "none";
+        row.style.display = searchTerm ? (matchFound ? "" : "none") : "";
       });
+
       const theadCheckbox = table.querySelector("thead input[type='checkbox']");
       updateTheadCheckbox(table, theadCheckbox);
     });
