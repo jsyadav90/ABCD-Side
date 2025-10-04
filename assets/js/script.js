@@ -148,16 +148,17 @@ document.addEventListener("DOMContentLoaded", () => {
       allRows.forEach((row, rowIndex) => {
         let matchFound = false;
         row.querySelectorAll("td").forEach((td, colIndex) => {
-          // Reset td to original HTML first
+          if (td.classList.contains("no-search")) return;
+
           td.innerHTML = originalHTML[rowIndex][colIndex];
 
           if (searchTerm && td.textContent.toLowerCase().includes(searchTerm)) {
             matchFound = true;
-            // Highlight search term
             const regex = new RegExp(`(${searchTerm})`, "gi");
             td.innerHTML = td.innerHTML.replace(regex, "<mark>$1</mark>");
           }
         });
+
         row.style.display = searchTerm ? (matchFound ? "" : "none") : "";
       });
 
@@ -196,31 +197,62 @@ document.addEventListener("DOMContentLoaded", () => {
   if (initialTab) initialTab.click();
 });
 
-
-
-
 //! ------------------ This is table action script ------------------
 document.addEventListener("DOMContentLoaded", () => {
-  // Handle Action Dropdown Toggle
-  document.querySelectorAll(".action-icon").forEach(icon => {
+  document.querySelectorAll(".action-icon").forEach((icon) => {
     icon.addEventListener("click", (e) => {
       const dropdown = e.target.nextElementSibling;
-      
+
       // Close all other open dropdowns
-      document.querySelectorAll(".action-menu .dropdown").forEach(menu => {
+      document.querySelectorAll(".action-menu .dropdown").forEach((menu) => {
         if (menu !== dropdown) menu.style.display = "none";
       });
 
-      // Toggle current dropdown
-      dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      // Toggle visibility
+      if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+        dropdown.classList.remove("drop-up", "drop-left", "drop-right");
+      } else {
+        dropdown.style.display = "block";
+
+        // Reset previous position classes
+        dropdown.classList.remove("drop-up", "drop-left", "drop-right");
+
+        // Positioning logic
+        const rect = dropdown.getBoundingClientRect();
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        // Space available
+        const spaceBottom = vh - rect.bottom;
+        const spaceTop = rect.top;
+        const spaceRight = vw - rect.right;
+        const spaceLeft = rect.left;
+
+        // Default: dropdown opens down
+        let position = "down";
+
+        if (spaceBottom < dropdown.offsetHeight && spaceTop > dropdown.offsetHeight) {
+          position = "up"; // open upwards
+        } else if (spaceRight < dropdown.offsetWidth && spaceLeft > dropdown.offsetWidth) {
+          position = "left"; // open left
+        } else if (spaceRight > dropdown.offsetWidth) {
+          position = "right"; // open right
+        }
+
+        if (position === "up") dropdown.classList.add("drop-up");
+        if (position === "left") dropdown.classList.add("drop-left");
+        if (position === "right") dropdown.classList.add("drop-right");
+      }
     });
   });
 
   // Close dropdown if clicking outside
   window.addEventListener("click", (e) => {
     if (!e.target.closest(".action-menu")) {
-      document.querySelectorAll(".action-menu .dropdown").forEach(menu => {
+      document.querySelectorAll(".action-menu .dropdown").forEach((menu) => {
         menu.style.display = "none";
+        menu.classList.remove("drop-up", "drop-left", "drop-right");
       });
     }
   });

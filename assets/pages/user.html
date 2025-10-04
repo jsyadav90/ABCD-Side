@@ -46,7 +46,7 @@
 
     <div class="container">
       <!--! Sidebar -->
-       <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
+      <nav class="sidebar show" id="sidebar" aria-label="Main navigation">
         <div class="menu">
           <div class="menu-item">
             <a href="user.html">
@@ -57,7 +57,7 @@
 
           <!-- Inventory with Submenu -->
           <div class="menu-item has-submenu">
-            <a href="javascript:void(0)" class="submenu-toggle"> 
+            <a href="javascript:void(0)" class="submenu-toggle">
               <span class="material-icons" aria-hidden="true">inventory_2</span>
               Inventory
             </a>
@@ -128,75 +128,377 @@
           </div>
         </div>
 
-        <div class="tab-content" id="user">
+        <!-- <div class="tab-content" id="user">
           <div class="table-wrapper">
-            <table class="table" id="user-table">
-              <thead>
-                <tr>
-                  <th><input type="checkbox" /></th>
-                  <th>Action</th>
-                  <th>User ID</th>
-                  <th>Full Name</th>
-                  <th>Designation</th>
-                  <th>Department</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Status</th>
-                  <th>Remarks</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>
-                    <button
-                      class="edit-btn"
-                      onclick="location.href='edit-user.html'"
-                    >
-                      <img
-                        src="../icons/edit-button.png"
-                        class="icon"
-                        alt="Edit"
-                      />
-                    </button>
-                  </td>
-                  <td>EMP00123</td>
-                  <td>Anjali Sharma</td>
-                  <td>Accountant</td>
-                  <td>Finance</td>
-                  <td>anjali.sharma@company.com</td>
-                  <td>9876543210</td>
-                  <td>Active</td>
-                  <td>Full-time</td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" /></td>
-                  <td>
-                    <button
-                      class="edit-btn"
-                      onclick="location.href='edit-user.html'"
-                    >
-                      <img
-                        src="../icons/edit-button.png"
-                        class="icon"
-                        alt="Edit"
-                      />
-                    </button>
-                  </td>
-                  <td>EMP00145</td>
-                  <td>Vikram Yadav</td>
-                  <td>Network Engineer</td>
-                  <td>IT</td>
-                  <td>vikram.yadav@company.com</td>
-                  <td>9988776655</td>
+            <table class="table" id="user-table"> -->
+        <div class="table-container">
+          <table class="table accessories-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox" /></th>
 
-                  <td>Active</td>
-                  <td>Works remotely</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <th>User ID</th>
+                <th>Full Name</th>
+                <th>Designation</th>
+                <th>Department</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Status</th>
+                <th>Remarks</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00123</td>
+                <td>Anjali Sharma</td>
+                <td>Accountant</td>
+                <td>Finance</td>
+                <td>anjali.sharma@company.com</td>
+                <td>9876543210</td>
+                <td>Active</td>
+                <td>Full-time</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              <tr>
+                <td><input type="checkbox" /></td>
+
+                <td>EMP00145</td>
+                <td>Vikram Yadav</td>
+                <td>Network Engineer</td>
+                <td>IT</td>
+                <td>vikram.yadav@company.com</td>
+                <td>9988776655</td>
+
+                <td>Active</td>
+                <td>Works remotely</td>
+                <td class="no-search">
+                  <div class="action-menu">
+                    <span class="material-icons action-icon">menu</span>
+                    <ul class="dropdown">
+                      <li><a href="edit-user.html">Edit</a></li>
+                      <li><a href="#">In-active</a></li>
+                      <li><a href="#">Disable</a></li>
+                      <li><a href="#">Delete</a></li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+        <!-- </div> -->
       </main>
     </div>
 
